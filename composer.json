@@ -3,15 +3,24 @@
     "version": "1.0.0",
     "description": "Official TemplateFox PHP SDK - Generate PDFs from HTML templates",
     "keywords": [
-        "openapitools",
-        "openapi-generator",
-        "openapi",
-        "php",
+        "pdf",
+        "pdf-generation",
+        "template",
+        "api",
+        "html-to-pdf",
+        "templatefox",
+        "pdf-template",
+        "document-generation",
+        "invoice",
+        "report",
         "sdk",
-        "rest",
-        "api"
+        "pdf-api"
     ],
-    "homepage": "https://github.com/TemplateFoxPDF/phpsdk",
+    "homepage": "https://pdftemplateapi.com",
+    "support": {
+        "issues": "https://github.com/TemplateFoxPDF/phpsdk/issues",
+        "source": "https://github.com/TemplateFoxPDF/phpsdk"
+    },
     "license": "MIT",
     "authors": [
         {
