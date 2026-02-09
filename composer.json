@@ -17,10 +17,6 @@
         "pdf-api"
     ],
     "homepage": "https://pdftemplateapi.com",
-    "support": {
-        "issues": "https://github.com/TemplateFoxPDF/phpsdk/issues",
-        "source": "https://github.com/TemplateFoxPDF/phpsdk"
-    },
     "license": "MIT",
     "authors": [
         {
@@ -49,5 +45,9 @@
         "psr-4": {
             "TemplateFox\\Test\\": "test/"
         }
+    },
+    "support": {
+        "issues": "https://github.com/TemplateFoxPDF/phpsdk/issues",
+        "source": "https://github.com/TemplateFoxPDF/phpsdk"
     }
 }
