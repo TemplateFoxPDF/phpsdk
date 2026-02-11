@@ -1,6 +1,6 @@
 <?php
 /**
- * ValidationError
+ * Spec
  *
  * PHP version 8.1
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \TemplateFox\ObjectSerializer;
 
 /**
- * ValidationError Class Doc Comment
+ * Spec Class Doc Comment
  *
  * @category Class
+ * @description For array fields: spec defining the structure of each item
  * @package  TemplateFox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
+class Spec implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ValidationError';
+    protected static $openAPIModelName = 'Spec';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +58,8 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'loc' => '\TemplateFox\Model\LocationInner[]',
-        'msg' => 'string',
+        'name' => 'string',
+        'label' => 'string',
         'type' => 'string'
     ];
 
@@ -70,8 +71,8 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'loc' => null,
-        'msg' => null,
+        'name' => null,
+        'label' => null,
         'type' => null
     ];
 
@@ -81,8 +82,8 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'loc' => false,
-        'msg' => false,
+        'name' => false,
+        'label' => false,
         'type' => false
     ];
 
@@ -172,8 +173,8 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'loc' => 'loc',
-        'msg' => 'msg',
+        'name' => 'name',
+        'label' => 'label',
         'type' => 'type'
     ];
 
@@ -183,8 +184,8 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'loc' => 'setLoc',
-        'msg' => 'setMsg',
+        'name' => 'setName',
+        'label' => 'setLabel',
         'type' => 'setType'
     ];
 
@@ -194,8 +195,8 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'loc' => 'getLoc',
-        'msg' => 'getMsg',
+        'name' => 'getName',
+        'label' => 'getLabel',
         'type' => 'getType'
     ];
 
@@ -256,9 +257,9 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('loc', $data ?? [], null);
-        $this->setIfExists('msg', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('label', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], 'text');
     }
 
     /**
@@ -288,14 +289,11 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['loc'] === null) {
-            $invalidProperties[] = "'loc' can't be null";
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['msg'] === null) {
-            $invalidProperties[] = "'msg' can't be null";
-        }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
+        if ($this->container['label'] === null) {
+            $invalidProperties[] = "'label' can't be null";
         }
         return $invalidProperties;
     }
@@ -313,55 +311,55 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets loc
+     * Gets name
      *
-     * @return \TemplateFox\Model\LocationInner[]
+     * @return string
      */
-    public function getLoc()
+    public function getName()
     {
-        return $this->container['loc'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets loc
+     * Sets name
      *
-     * @param \TemplateFox\Model\LocationInner[] $loc loc
+     * @param string $name Field name
      *
      * @return self
      */
-    public function setLoc($loc)
+    public function setName($name)
     {
-        if (is_null($loc)) {
-            throw new \InvalidArgumentException('non-nullable loc cannot be null');
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-        $this->container['loc'] = $loc;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets msg
+     * Gets label
      *
      * @return string
      */
-    public function getMsg()
+    public function getLabel()
     {
-        return $this->container['msg'];
+        return $this->container['label'];
     }
 
     /**
-     * Sets msg
+     * Sets label
      *
-     * @param string $msg msg
+     * @param string $label Field label
      *
      * @return self
      */
-    public function setMsg($msg)
+    public function setLabel($label)
     {
-        if (is_null($msg)) {
-            throw new \InvalidArgumentException('non-nullable msg cannot be null');
+        if (is_null($label)) {
+            throw new \InvalidArgumentException('non-nullable label cannot be null');
         }
-        $this->container['msg'] = $msg;
+        $this->container['label'] = $label;
 
         return $this;
     }
@@ -369,7 +367,7 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type
      *
-     * @return string
+     * @return string|null
      */
     public function getType()
     {
@@ -379,7 +377,7 @@ class ValidationError implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string $type type
+     * @param string|null $type Field type: text, number
      *
      * @return self
      */
