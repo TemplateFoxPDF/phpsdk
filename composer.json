@@ -1,6 +1,5 @@
 {
     "name": "templatefox/sdk",
-    "version": "1.0.0",
     "description": "Official TemplateFox PHP SDK - Generate PDFs from HTML templates",
     "keywords": [
         "pdf",
