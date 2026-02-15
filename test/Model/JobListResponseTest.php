@@ -1,6 +1,6 @@
 <?php
 /**
- * CreatePdfResponseTest
+ * JobListResponseTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace TemplateFox\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CreatePdfResponseTest Class Doc Comment
+ * JobListResponseTest Class Doc Comment
  *
  * @category    Class
- * @description Response for URL export type
+ * @description Response for job list query
  * @package     TemplateFox
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CreatePdfResponseTest extends TestCase
+class JobListResponseTest extends TestCase
 {
 
     /**
@@ -71,45 +71,45 @@ class CreatePdfResponseTest extends TestCase
     }
 
     /**
-     * Test "CreatePdfResponse"
+     * Test "JobListResponse"
      */
-    public function testCreatePdfResponse()
+    public function testJobListResponse()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "url"
+     * Test attribute "jobs"
      */
-    public function testPropertyUrl()
+    public function testPropertyJobs()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "filename"
+     * Test attribute "total"
      */
-    public function testPropertyFilename()
+    public function testPropertyTotal()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "credits_remaining"
+     * Test attribute "limit"
      */
-    public function testPropertyCreditsRemaining()
+    public function testPropertyLimit()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "expires_in"
+     * Test attribute "offset"
      */
-    public function testPropertyExpiresIn()
+    public function testPropertyOffset()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

@@ -1,6 +1,6 @@
 <?php
 /**
- * CreatePdfRequestTest
+ * JobStatusResponseTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace TemplateFox\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CreatePdfRequestTest Class Doc Comment
+ * JobStatusResponseTest Class Doc Comment
  *
  * @category    Class
- * @description Request model for PDF generation
+ * @description Response for job status query
  * @package     TemplateFox
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CreatePdfRequestTest extends TestCase
+class JobStatusResponseTest extends TestCase
 {
 
     /**
@@ -71,9 +71,27 @@ class CreatePdfRequestTest extends TestCase
     }
 
     /**
-     * Test "CreatePdfRequest"
+     * Test "JobStatusResponse"
      */
-    public function testCreatePdfRequest()
+    public function testJobStatusResponse()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "id"
+     */
+    public function testPropertyId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "status"
+     */
+    public function testPropertyStatus()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -89,27 +107,9 @@ class CreatePdfRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "data"
-     */
-    public function testPropertyData()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "export_type"
      */
     public function testPropertyExportType()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "expiration"
-     */
-    public function testPropertyExpiration()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -134,18 +134,90 @@ class CreatePdfRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "s3_filepath"
+     * Test attribute "created_at"
      */
-    public function testPropertyS3Filepath()
+    public function testPropertyCreatedAt()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "s3_bucket"
+     * Test attribute "updated_at"
      */
-    public function testPropertyS3Bucket()
+    public function testPropertyUpdatedAt()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "completed_at"
+     */
+    public function testPropertyCompletedAt()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "result_url"
+     */
+    public function testPropertyResultUrl()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "result_filename"
+     */
+    public function testPropertyResultFilename()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "result_expires_at"
+     */
+    public function testPropertyResultExpiresAt()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "result_s3_bucket"
+     */
+    public function testPropertyResultS3Bucket()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "result_s3_key"
+     */
+    public function testPropertyResultS3Key()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "error_message"
+     */
+    public function testPropertyErrorMessage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "error_code"
+     */
+    public function testPropertyErrorCode()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

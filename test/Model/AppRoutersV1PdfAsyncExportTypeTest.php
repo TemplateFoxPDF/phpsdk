@@ -1,6 +1,6 @@
 <?php
 /**
- * CreatePdfResponseTest
+ * AppRoutersV1PdfAsyncExportTypeTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace TemplateFox\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CreatePdfResponseTest Class Doc Comment
+ * AppRoutersV1PdfAsyncExportTypeTest Class Doc Comment
  *
  * @category    Class
- * @description Response for URL export type
+ * @description PDF export type options for async generation
  * @package     TemplateFox
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CreatePdfResponseTest extends TestCase
+class AppRoutersV1PdfAsyncExportTypeTest extends TestCase
 {
 
     /**
@@ -71,45 +71,9 @@ class CreatePdfResponseTest extends TestCase
     }
 
     /**
-     * Test "CreatePdfResponse"
+     * Test "AppRoutersV1PdfAsyncExportType"
      */
-    public function testCreatePdfResponse()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "url"
-     */
-    public function testPropertyUrl()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "filename"
-     */
-    public function testPropertyFilename()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "credits_remaining"
-     */
-    public function testPropertyCreditsRemaining()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "expires_in"
-     */
-    public function testPropertyExpiresIn()
+    public function testAppRoutersV1PdfAsyncExportType()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

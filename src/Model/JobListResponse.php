@@ -1,6 +1,6 @@
 <?php
 /**
- * LocationInner
+ * JobListResponse
  *
  * PHP version 8.1
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \TemplateFox\ObjectSerializer;
 
 /**
- * LocationInner Class Doc Comment
+ * JobListResponse Class Doc Comment
  *
  * @category Class
+ * @description Response for job list query
  * @package  TemplateFox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class LocationInner implements ModelInterface, ArrayAccess, \JsonSerializable
+class JobListResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class LocationInner implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Location_inner';
+    protected static $openAPIModelName = 'JobListResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,10 @@ class LocationInner implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        
+        'jobs' => '\TemplateFox\Model\JobStatusResponse[]',
+        'total' => 'int',
+        'limit' => 'int',
+        'offset' => 'int'
     ];
 
     /**
@@ -68,7 +72,10 @@ class LocationInner implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        
+        'jobs' => null,
+        'total' => null,
+        'limit' => null,
+        'offset' => null
     ];
 
     /**
@@ -77,7 +84,10 @@ class LocationInner implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        
+        'jobs' => false,
+        'total' => false,
+        'limit' => false,
+        'offset' => false
     ];
 
     /**
@@ -166,7 +176,10 @@ class LocationInner implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'jobs' => 'jobs',
+        'total' => 'total',
+        'limit' => 'limit',
+        'offset' => 'offset'
     ];
 
     /**
@@ -175,7 +188,10 @@ class LocationInner implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        
+        'jobs' => 'setJobs',
+        'total' => 'setTotal',
+        'limit' => 'setLimit',
+        'offset' => 'setOffset'
     ];
 
     /**
@@ -184,7 +200,10 @@ class LocationInner implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        
+        'jobs' => 'getJobs',
+        'total' => 'getTotal',
+        'limit' => 'getLimit',
+        'offset' => 'getOffset'
     ];
 
     /**
@@ -244,6 +263,10 @@ class LocationInner implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('jobs', $data ?? [], null);
+        $this->setIfExists('total', $data ?? [], null);
+        $this->setIfExists('limit', $data ?? [], null);
+        $this->setIfExists('offset', $data ?? [], null);
     }
 
     /**
@@ -273,6 +296,18 @@ class LocationInner implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['jobs'] === null) {
+            $invalidProperties[] = "'jobs' can't be null";
+        }
+        if ($this->container['total'] === null) {
+            $invalidProperties[] = "'total' can't be null";
+        }
+        if ($this->container['limit'] === null) {
+            $invalidProperties[] = "'limit' can't be null";
+        }
+        if ($this->container['offset'] === null) {
+            $invalidProperties[] = "'offset' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -287,6 +322,114 @@ class LocationInner implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets jobs
+     *
+     * @return \TemplateFox\Model\JobStatusResponse[]
+     */
+    public function getJobs()
+    {
+        return $this->container['jobs'];
+    }
+
+    /**
+     * Sets jobs
+     *
+     * @param \TemplateFox\Model\JobStatusResponse[] $jobs List of jobs
+     *
+     * @return self
+     */
+    public function setJobs($jobs)
+    {
+        if (is_null($jobs)) {
+            throw new \InvalidArgumentException('non-nullable jobs cannot be null');
+        }
+        $this->container['jobs'] = $jobs;
+
+        return $this;
+    }
+
+    /**
+     * Gets total
+     *
+     * @return int
+     */
+    public function getTotal()
+    {
+        return $this->container['total'];
+    }
+
+    /**
+     * Sets total
+     *
+     * @param int $total Total number of jobs matching filter
+     *
+     * @return self
+     */
+    public function setTotal($total)
+    {
+        if (is_null($total)) {
+            throw new \InvalidArgumentException('non-nullable total cannot be null');
+        }
+        $this->container['total'] = $total;
+
+        return $this;
+    }
+
+    /**
+     * Gets limit
+     *
+     * @return int
+     */
+    public function getLimit()
+    {
+        return $this->container['limit'];
+    }
+
+    /**
+     * Sets limit
+     *
+     * @param int $limit Page size
+     *
+     * @return self
+     */
+    public function setLimit($limit)
+    {
+        if (is_null($limit)) {
+            throw new \InvalidArgumentException('non-nullable limit cannot be null');
+        }
+        $this->container['limit'] = $limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets offset
+     *
+     * @return int
+     */
+    public function getOffset()
+    {
+        return $this->container['offset'];
+    }
+
+    /**
+     * Sets offset
+     *
+     * @param int $offset Page offset
+     *
+     * @return self
+     */
+    public function setOffset($offset)
+    {
+        if (is_null($offset)) {
+            throw new \InvalidArgumentException('non-nullable offset cannot be null');
+        }
+        $this->container['offset'] = $offset;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

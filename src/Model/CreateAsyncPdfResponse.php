@@ -1,6 +1,6 @@
 <?php
 /**
- * LocationInner
+ * CreateAsyncPdfResponse
  *
  * PHP version 8.1
  *
@@ -32,15 +32,16 @@ use \ArrayAccess;
 use \TemplateFox\ObjectSerializer;
 
 /**
- * LocationInner Class Doc Comment
+ * CreateAsyncPdfResponse Class Doc Comment
  *
  * @category Class
+ * @description Response for async PDF creation
  * @package  TemplateFox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class LocationInner implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateAsyncPdfResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +50,7 @@ class LocationInner implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Location_inner';
+    protected static $openAPIModelName = 'CreateAsyncPdfResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +58,9 @@ class LocationInner implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        
+        'job_id' => 'string',
+        'status' => '\TemplateFox\Model\JobStatus',
+        'credits_remaining' => 'int'
     ];
 
     /**
@@ -68,7 +71,9 @@ class LocationInner implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        
+        'job_id' => null,
+        'status' => null,
+        'credits_remaining' => null
     ];
 
     /**
@@ -77,7 +82,9 @@ class LocationInner implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        
+        'job_id' => false,
+        'status' => false,
+        'credits_remaining' => false
     ];
 
     /**
@@ -166,7 +173,9 @@ class LocationInner implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'job_id' => 'job_id',
+        'status' => 'status',
+        'credits_remaining' => 'credits_remaining'
     ];
 
     /**
@@ -175,7 +184,9 @@ class LocationInner implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        
+        'job_id' => 'setJobId',
+        'status' => 'setStatus',
+        'credits_remaining' => 'setCreditsRemaining'
     ];
 
     /**
@@ -184,7 +195,9 @@ class LocationInner implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        
+        'job_id' => 'getJobId',
+        'status' => 'getStatus',
+        'credits_remaining' => 'getCreditsRemaining'
     ];
 
     /**
@@ -244,6 +257,9 @@ class LocationInner implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('job_id', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('credits_remaining', $data ?? [], null);
     }
 
     /**
@@ -273,6 +289,15 @@ class LocationInner implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['job_id'] === null) {
+            $invalidProperties[] = "'job_id' can't be null";
+        }
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
+        }
+        if ($this->container['credits_remaining'] === null) {
+            $invalidProperties[] = "'credits_remaining' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -287,6 +312,87 @@ class LocationInner implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets job_id
+     *
+     * @return string
+     */
+    public function getJobId()
+    {
+        return $this->container['job_id'];
+    }
+
+    /**
+     * Sets job_id
+     *
+     * @param string $job_id Unique job identifier for status polling
+     *
+     * @return self
+     */
+    public function setJobId($job_id)
+    {
+        if (is_null($job_id)) {
+            throw new \InvalidArgumentException('non-nullable job_id cannot be null');
+        }
+        $this->container['job_id'] = $job_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return \TemplateFox\Model\JobStatus
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param \TemplateFox\Model\JobStatus $status Initial job status (always 'pending')
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        }
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets credits_remaining
+     *
+     * @return int
+     */
+    public function getCreditsRemaining()
+    {
+        return $this->container['credits_remaining'];
+    }
+
+    /**
+     * Sets credits_remaining
+     *
+     * @param int $credits_remaining Remaining credits after this request
+     *
+     * @return self
+     */
+    public function setCreditsRemaining($credits_remaining)
+    {
+        if (is_null($credits_remaining)) {
+            throw new \InvalidArgumentException('non-nullable credits_remaining cannot be null');
+        }
+        $this->container['credits_remaining'] = $credits_remaining;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

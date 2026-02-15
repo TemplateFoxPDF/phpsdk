@@ -1,6 +1,6 @@
 <?php
 /**
- * AccountApi
+ * PDFAsyncApi
  * PHP version 8.1
  *
  * @category Class
@@ -43,14 +43,14 @@ use TemplateFox\HeaderSelector;
 use TemplateFox\ObjectSerializer;
 
 /**
- * AccountApi Class Doc Comment
+ * PDFAsyncApi Class Doc Comment
  *
  * @category Class
  * @package  TemplateFox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class AccountApi
+class PDFAsyncApi
 {
     /**
      * @var ClientInterface
@@ -74,10 +74,13 @@ class AccountApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'getAccount' => [
+        'createPdfAsync' => [
             'application/json',
         ],
-        'listTransactions' => [
+        'getPdfJobStatus' => [
+            'application/json',
+        ],
+        'listPdfJobs' => [
             'application/json',
         ],
     ];
@@ -129,36 +132,38 @@ class AccountApi
     }
 
     /**
-     * Operation getAccount
+     * Operation createPdfAsync
      *
-     * Get account info
+     * Generate PDF asynchronously
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccount'] to see the possible values for this operation
+     * @param  \TemplateFox\Model\CreateAsyncPdfRequest $create_async_pdf_request create_async_pdf_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPdfAsync'] to see the possible values for this operation
      *
      * @throws \TemplateFox\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \TemplateFox\Model\AccountInfoResponse|\TemplateFox\Model\HTTPValidationError
+     * @return \TemplateFox\Model\CreateAsyncPdfResponse|\TemplateFox\Model\HTTPValidationError
      */
-    public function getAccount(string $contentType = self::contentTypes['getAccount'][0])
+    public function createPdfAsync($create_async_pdf_request, string $contentType = self::contentTypes['createPdfAsync'][0])
     {
-        list($response) = $this->getAccountWithHttpInfo($contentType);
+        list($response) = $this->createPdfAsyncWithHttpInfo($create_async_pdf_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation getAccountWithHttpInfo
+     * Operation createPdfAsyncWithHttpInfo
      *
-     * Get account info
+     * Generate PDF asynchronously
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccount'] to see the possible values for this operation
+     * @param  \TemplateFox\Model\CreateAsyncPdfRequest $create_async_pdf_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPdfAsync'] to see the possible values for this operation
      *
      * @throws \TemplateFox\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \TemplateFox\Model\AccountInfoResponse|\TemplateFox\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TemplateFox\Model\CreateAsyncPdfResponse|\TemplateFox\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAccountWithHttpInfo(string $contentType = self::contentTypes['getAccount'][0])
+    public function createPdfAsyncWithHttpInfo($create_async_pdf_request, string $contentType = self::contentTypes['createPdfAsync'][0])
     {
-        $request = $this->getAccountRequest($contentType);
+        $request = $this->createPdfAsyncRequest($create_async_pdf_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -186,7 +191,7 @@ class AccountApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\TemplateFox\Model\AccountInfoResponse',
+                        '\TemplateFox\Model\CreateAsyncPdfResponse',
                         $request,
                         $response,
                     );
@@ -214,7 +219,7 @@ class AccountApi
             }
 
             return $this->handleResponseWithDataType(
-                '\TemplateFox\Model\AccountInfoResponse',
+                '\TemplateFox\Model\CreateAsyncPdfResponse',
                 $request,
                 $response,
             );
@@ -223,7 +228,7 @@ class AccountApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TemplateFox\Model\AccountInfoResponse',
+                        '\TemplateFox\Model\CreateAsyncPdfResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -244,18 +249,19 @@ class AccountApi
     }
 
     /**
-     * Operation getAccountAsync
+     * Operation createPdfAsyncAsync
      *
-     * Get account info
+     * Generate PDF asynchronously
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccount'] to see the possible values for this operation
+     * @param  \TemplateFox\Model\CreateAsyncPdfRequest $create_async_pdf_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPdfAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountAsync(string $contentType = self::contentTypes['getAccount'][0])
+    public function createPdfAsyncAsync($create_async_pdf_request, string $contentType = self::contentTypes['createPdfAsync'][0])
     {
-        return $this->getAccountAsyncWithHttpInfo($contentType)
+        return $this->createPdfAsyncAsyncWithHttpInfo($create_async_pdf_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -264,19 +270,20 @@ class AccountApi
     }
 
     /**
-     * Operation getAccountAsyncWithHttpInfo
+     * Operation createPdfAsyncAsyncWithHttpInfo
      *
-     * Get account info
+     * Generate PDF asynchronously
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccount'] to see the possible values for this operation
+     * @param  \TemplateFox\Model\CreateAsyncPdfRequest $create_async_pdf_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPdfAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountAsyncWithHttpInfo(string $contentType = self::contentTypes['getAccount'][0])
+    public function createPdfAsyncAsyncWithHttpInfo($create_async_pdf_request, string $contentType = self::contentTypes['createPdfAsync'][0])
     {
-        $returnType = '\TemplateFox\Model\AccountInfoResponse';
-        $request = $this->getAccountRequest($contentType);
+        $returnType = '\TemplateFox\Model\CreateAsyncPdfResponse';
+        $request = $this->createPdfAsyncRequest($create_async_pdf_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -315,18 +322,26 @@ class AccountApi
     }
 
     /**
-     * Create request for operation 'getAccount'
+     * Create request for operation 'createPdfAsync'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAccount'] to see the possible values for this operation
+     * @param  \TemplateFox\Model\CreateAsyncPdfRequest $create_async_pdf_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPdfAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAccountRequest(string $contentType = self::contentTypes['getAccount'][0])
+    public function createPdfAsyncRequest($create_async_pdf_request, string $contentType = self::contentTypes['createPdfAsync'][0])
     {
 
+        // verify the required parameter 'create_async_pdf_request' is set
+        if ($create_async_pdf_request === null || (is_array($create_async_pdf_request) && count($create_async_pdf_request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $create_async_pdf_request when calling createPdfAsync'
+            );
+        }
 
-        $resourcePath = '/v1/account';
+
+        $resourcePath = '/v1/pdf/create-async';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -335,6 +350,300 @@ class AccountApi
 
 
 
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($create_async_pdf_request)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_async_pdf_request));
+            } else {
+                $httpBody = $create_async_pdf_request;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
+        if ($apiKey !== null) {
+            $headers['x-api-key'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getPdfJobStatus
+     *
+     * Get PDF job status
+     *
+     * @param  string $job_id job_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPdfJobStatus'] to see the possible values for this operation
+     *
+     * @throws \TemplateFox\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \TemplateFox\Model\JobStatusResponse|\TemplateFox\Model\HTTPValidationError
+     */
+    public function getPdfJobStatus($job_id, string $contentType = self::contentTypes['getPdfJobStatus'][0])
+    {
+        list($response) = $this->getPdfJobStatusWithHttpInfo($job_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getPdfJobStatusWithHttpInfo
+     *
+     * Get PDF job status
+     *
+     * @param  string $job_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPdfJobStatus'] to see the possible values for this operation
+     *
+     * @throws \TemplateFox\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \TemplateFox\Model\JobStatusResponse|\TemplateFox\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPdfJobStatusWithHttpInfo($job_id, string $contentType = self::contentTypes['getPdfJobStatus'][0])
+    {
+        $request = $this->getPdfJobStatusRequest($job_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\TemplateFox\Model\JobStatusResponse',
+                        $request,
+                        $response,
+                    );
+                case 422:
+                    return $this->handleResponseWithDataType(
+                        '\TemplateFox\Model\HTTPValidationError',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\TemplateFox\Model\JobStatusResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TemplateFox\Model\JobStatusResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\TemplateFox\Model\HTTPValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getPdfJobStatusAsync
+     *
+     * Get PDF job status
+     *
+     * @param  string $job_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPdfJobStatus'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPdfJobStatusAsync($job_id, string $contentType = self::contentTypes['getPdfJobStatus'][0])
+    {
+        return $this->getPdfJobStatusAsyncWithHttpInfo($job_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getPdfJobStatusAsyncWithHttpInfo
+     *
+     * Get PDF job status
+     *
+     * @param  string $job_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPdfJobStatus'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPdfJobStatusAsyncWithHttpInfo($job_id, string $contentType = self::contentTypes['getPdfJobStatus'][0])
+    {
+        $returnType = '\TemplateFox\Model\JobStatusResponse';
+        $request = $this->getPdfJobStatusRequest($job_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getPdfJobStatus'
+     *
+     * @param  string $job_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPdfJobStatus'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getPdfJobStatusRequest($job_id, string $contentType = self::contentTypes['getPdfJobStatus'][0])
+    {
+
+        // verify the required parameter 'job_id' is set
+        if ($job_id === null || (is_array($job_id) && count($job_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $job_id when calling getPdfJobStatus'
+            );
+        }
+
+
+        $resourcePath = '/v1/pdf/status/{job_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($job_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'job_id' . '}',
+                ObjectSerializer::toPathValue($job_id),
+                $resourcePath
+            );
+        }
 
 
         $headers = $this->headerSelector->selectHeaders(
@@ -396,40 +705,42 @@ class AccountApi
     }
 
     /**
-     * Operation listTransactions
+     * Operation listPdfJobs
      *
-     * List transactions
+     * List PDF jobs
      *
-     * @param  int|null $limit Number of records to return (optional, default to 300)
-     * @param  int|null $offset Number of records to skip (optional, default to 0)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTransactions'] to see the possible values for this operation
+     * @param  int|null $limit limit (optional, default to 20)
+     * @param  int|null $offset offset (optional, default to 0)
+     * @param  \TemplateFoxModelJobStatus|null $status status (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listPdfJobs'] to see the possible values for this operation
      *
      * @throws \TemplateFox\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \TemplateFox\Model\TransactionsResponse|\TemplateFox\Model\HTTPValidationError
+     * @return \TemplateFox\Model\JobListResponse|\TemplateFox\Model\HTTPValidationError
      */
-    public function listTransactions($limit = 300, $offset = 0, string $contentType = self::contentTypes['listTransactions'][0])
+    public function listPdfJobs($limit = 20, $offset = 0, $status = null, string $contentType = self::contentTypes['listPdfJobs'][0])
     {
-        list($response) = $this->listTransactionsWithHttpInfo($limit, $offset, $contentType);
+        list($response) = $this->listPdfJobsWithHttpInfo($limit, $offset, $status, $contentType);
         return $response;
     }
 
     /**
-     * Operation listTransactionsWithHttpInfo
+     * Operation listPdfJobsWithHttpInfo
      *
-     * List transactions
+     * List PDF jobs
      *
-     * @param  int|null $limit Number of records to return (optional, default to 300)
-     * @param  int|null $offset Number of records to skip (optional, default to 0)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTransactions'] to see the possible values for this operation
+     * @param  int|null $limit (optional, default to 20)
+     * @param  int|null $offset (optional, default to 0)
+     * @param  \TemplateFoxModelJobStatus|null $status (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listPdfJobs'] to see the possible values for this operation
      *
      * @throws \TemplateFox\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \TemplateFox\Model\TransactionsResponse|\TemplateFox\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TemplateFox\Model\JobListResponse|\TemplateFox\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listTransactionsWithHttpInfo($limit = 300, $offset = 0, string $contentType = self::contentTypes['listTransactions'][0])
+    public function listPdfJobsWithHttpInfo($limit = 20, $offset = 0, $status = null, string $contentType = self::contentTypes['listPdfJobs'][0])
     {
-        $request = $this->listTransactionsRequest($limit, $offset, $contentType);
+        $request = $this->listPdfJobsRequest($limit, $offset, $status, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -457,7 +768,7 @@ class AccountApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\TemplateFox\Model\TransactionsResponse',
+                        '\TemplateFox\Model\JobListResponse',
                         $request,
                         $response,
                     );
@@ -485,7 +796,7 @@ class AccountApi
             }
 
             return $this->handleResponseWithDataType(
-                '\TemplateFox\Model\TransactionsResponse',
+                '\TemplateFox\Model\JobListResponse',
                 $request,
                 $response,
             );
@@ -494,7 +805,7 @@ class AccountApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TemplateFox\Model\TransactionsResponse',
+                        '\TemplateFox\Model\JobListResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -515,20 +826,21 @@ class AccountApi
     }
 
     /**
-     * Operation listTransactionsAsync
+     * Operation listPdfJobsAsync
      *
-     * List transactions
+     * List PDF jobs
      *
-     * @param  int|null $limit Number of records to return (optional, default to 300)
-     * @param  int|null $offset Number of records to skip (optional, default to 0)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTransactions'] to see the possible values for this operation
+     * @param  int|null $limit (optional, default to 20)
+     * @param  int|null $offset (optional, default to 0)
+     * @param  \TemplateFoxModelJobStatus|null $status (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listPdfJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listTransactionsAsync($limit = 300, $offset = 0, string $contentType = self::contentTypes['listTransactions'][0])
+    public function listPdfJobsAsync($limit = 20, $offset = 0, $status = null, string $contentType = self::contentTypes['listPdfJobs'][0])
     {
-        return $this->listTransactionsAsyncWithHttpInfo($limit, $offset, $contentType)
+        return $this->listPdfJobsAsyncWithHttpInfo($limit, $offset, $status, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -537,21 +849,22 @@ class AccountApi
     }
 
     /**
-     * Operation listTransactionsAsyncWithHttpInfo
+     * Operation listPdfJobsAsyncWithHttpInfo
      *
-     * List transactions
+     * List PDF jobs
      *
-     * @param  int|null $limit Number of records to return (optional, default to 300)
-     * @param  int|null $offset Number of records to skip (optional, default to 0)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTransactions'] to see the possible values for this operation
+     * @param  int|null $limit (optional, default to 20)
+     * @param  int|null $offset (optional, default to 0)
+     * @param  \TemplateFoxModelJobStatus|null $status (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listPdfJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listTransactionsAsyncWithHttpInfo($limit = 300, $offset = 0, string $contentType = self::contentTypes['listTransactions'][0])
+    public function listPdfJobsAsyncWithHttpInfo($limit = 20, $offset = 0, $status = null, string $contentType = self::contentTypes['listPdfJobs'][0])
     {
-        $returnType = '\TemplateFox\Model\TransactionsResponse';
-        $request = $this->listTransactionsRequest($limit, $offset, $contentType);
+        $returnType = '\TemplateFox\Model\JobListResponse';
+        $request = $this->listPdfJobsRequest($limit, $offset, $status, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -590,31 +903,24 @@ class AccountApi
     }
 
     /**
-     * Create request for operation 'listTransactions'
+     * Create request for operation 'listPdfJobs'
      *
-     * @param  int|null $limit Number of records to return (optional, default to 300)
-     * @param  int|null $offset Number of records to skip (optional, default to 0)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listTransactions'] to see the possible values for this operation
+     * @param  int|null $limit (optional, default to 20)
+     * @param  int|null $offset (optional, default to 0)
+     * @param  \TemplateFoxModelJobStatus|null $status (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listPdfJobs'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listTransactionsRequest($limit = 300, $offset = 0, string $contentType = self::contentTypes['listTransactions'][0])
+    public function listPdfJobsRequest($limit = 20, $offset = 0, $status = null, string $contentType = self::contentTypes['listPdfJobs'][0])
     {
 
-        if ($limit !== null && $limit > 1000) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling AccountApi.listTransactions, must be smaller than or equal to 1000.');
-        }
-        if ($limit !== null && $limit < 1) {
-            throw new \InvalidArgumentException('invalid value for "$limit" when calling AccountApi.listTransactions, must be bigger than or equal to 1.');
-        }
-        
-        if ($offset !== null && $offset < 0) {
-            throw new \InvalidArgumentException('invalid value for "$offset" when calling AccountApi.listTransactions, must be bigger than or equal to 0.');
-        }
-        
 
-        $resourcePath = '/v1/account/transactions';
+
+
+
+        $resourcePath = '/v1/pdf/jobs';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -635,6 +941,15 @@ class AccountApi
             $offset,
             'offset', // param base name
             'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $status,
+            'status', // param base name
+            'JobStatus', // openApiType
             'form', // style
             true, // explode
             false // required

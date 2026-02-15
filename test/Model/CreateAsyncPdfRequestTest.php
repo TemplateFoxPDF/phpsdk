@@ -1,6 +1,6 @@
 <?php
 /**
- * CreatePdfResponseTest
+ * CreateAsyncPdfRequestTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace TemplateFox\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CreatePdfResponseTest Class Doc Comment
+ * CreateAsyncPdfRequestTest Class Doc Comment
  *
  * @category    Class
- * @description Response for URL export type
+ * @description Request model for async PDF generation
  * @package     TemplateFox
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CreatePdfResponseTest extends TestCase
+class CreateAsyncPdfRequestTest extends TestCase
 {
 
     /**
@@ -71,18 +71,45 @@ class CreatePdfResponseTest extends TestCase
     }
 
     /**
-     * Test "CreatePdfResponse"
+     * Test "CreateAsyncPdfRequest"
      */
-    public function testCreatePdfResponse()
+    public function testCreateAsyncPdfRequest()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "url"
+     * Test attribute "template_id"
      */
-    public function testPropertyUrl()
+    public function testPropertyTemplateId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "data"
+     */
+    public function testPropertyData()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "export_type"
+     */
+    public function testPropertyExportType()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "expiration"
+     */
+    public function testPropertyExpiration()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -98,18 +125,45 @@ class CreatePdfResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "credits_remaining"
+     * Test attribute "store_s3"
      */
-    public function testPropertyCreditsRemaining()
+    public function testPropertyStoreS3()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "expires_in"
+     * Test attribute "s3_filepath"
      */
-    public function testPropertyExpiresIn()
+    public function testPropertyS3Filepath()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "s3_bucket"
+     */
+    public function testPropertyS3Bucket()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "webhook_url"
+     */
+    public function testPropertyWebhookUrl()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "webhook_secret"
+     */
+    public function testPropertyWebhookSecret()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
