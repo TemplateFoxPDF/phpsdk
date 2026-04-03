@@ -1,6 +1,6 @@
 <?php
 /**
- * AppRoutersV1PdfExportType
+ * PdfVariant
  *
  * PHP version 8.1
  *
@@ -30,22 +30,24 @@ namespace TemplateFox\Model;
 use \TemplateFox\ObjectSerializer;
 
 /**
- * AppRoutersV1PdfExportType Class Doc Comment
+ * PdfVariant Class Doc Comment
  *
  * @category Class
- * @description PDF export type options
+ * @description PDF variant for standards-compliant output (PDF/A).
  * @package  TemplateFox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class AppRoutersV1PdfExportType
+class PdfVariant
 {
     /**
      * Possible values of this enum
      */
-    public const URL = 'url';
+    public const PDF_A_1B = 'pdf/a-1b';
 
-    public const BINARY = 'binary';
+    public const PDF_A_2B = 'pdf/a-2b';
+
+    public const PDF_A_3B = 'pdf/a-3b';
 
     /**
      * Gets allowable values of the enum
@@ -54,8 +56,9 @@ class AppRoutersV1PdfExportType
     public static function getAllowableEnumValues()
     {
         return [
-            self::URL,
-            self::BINARY
+            self::PDF_A_1B,
+            self::PDF_A_2B,
+            self::PDF_A_3B
         ];
     }
 }

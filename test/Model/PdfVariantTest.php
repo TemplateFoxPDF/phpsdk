@@ -1,6 +1,6 @@
 <?php
 /**
- * TemplatesListResponseTest
+ * PdfVariantTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace TemplateFox\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * TemplatesListResponseTest Class Doc Comment
+ * PdfVariantTest Class Doc Comment
  *
  * @category    Class
- * @description Response for template list endpoint
+ * @description PDF variant for standards-compliant output (PDF/A).
  * @package     TemplateFox
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class TemplatesListResponseTest extends TestCase
+class PdfVariantTest extends TestCase
 {
 
     /**
@@ -71,18 +71,9 @@ class TemplatesListResponseTest extends TestCase
     }
 
     /**
-     * Test "TemplatesListResponse"
+     * Test "PdfVariant"
      */
-    public function testTemplatesListResponse()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "templates"
-     */
-    public function testPropertyTemplates()
+    public function testPdfVariant()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
