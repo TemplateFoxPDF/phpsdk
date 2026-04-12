@@ -1,6 +1,6 @@
 # TemplateFox PHP SDK
 
-Official PHP SDK for [TemplateFox](https://pdftemplateapi.com) - Generate PDFs from HTML templates via API.
+Official PHP SDK for [TemplateFox](https://templatefox.com) - Generate PDFs from HTML templates via API.
 
 [![Packagist Version](https://img.shields.io/packagist/v/templatefox/sdk.svg)](https://packagist.org/packages/templatefox/sdk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -144,7 +144,7 @@ echo "Connection: " . ($test->getSuccess() ? "OK" : "Failed") . "\n";
 
 ```php
 $config = Configuration::getDefaultConfiguration()
-    ->setHost('https://api.pdftemplateapi.com')  // Default API URL
+    ->setHost('https://api.templatefox.com')  // Default API URL
     ->setApiKey('x-api-key', getenv('TEMPLATEFOX_API_KEY'));
 ```
 
@@ -196,13 +196,13 @@ public function register()
 
 ## Documentation
 
-- [API Documentation](https://pdftemplateapi.com/docs)
-- [Swagger UI](https://api.pdftemplateapi.com/docs)
-- [Dashboard](https://pdftemplateapi.com/dashboard)
+- [API Documentation](https://templatefox.com/docs)
+- [Swagger UI](https://api.templatefox.com/docs)
+- [Dashboard](https://templatefox.com/dashboard)
 
 ## Support
 
-- Email: support@pdftemplateapi.com
+- Email: support@templatefox.com
 - Issues: [GitHub Issues](https://github.com/TemplateFoxPDF/phpsdk/issues)
 
 ## License

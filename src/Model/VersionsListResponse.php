@@ -1,6 +1,6 @@
 <?php
 /**
- * TemplateFieldSpec
+ * VersionsListResponse
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \TemplateFox\ObjectSerializer;
 
 /**
- * TemplateFieldSpec Class Doc Comment
+ * VersionsListResponse Class Doc Comment
  *
  * @category Class
- * @description Spec for array item fields
+ * @description Response for versions list
  * @package  TemplateFox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializable
+class VersionsListResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
      *
      * @var string
      */
-    protected static $openAPIModelName = 'TemplateFieldSpec';
+    protected static $openAPIModelName = 'VersionsListResponse';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,7 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'label' => 'string',
-        'type' => 'string'
+        'versions' => '\TemplateFox\Model\VersionItem[]'
     ];
 
     /**
@@ -71,9 +69,7 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'name' => null,
-        'label' => null,
-        'type' => null
+        'versions' => null
     ];
 
     /**
@@ -82,9 +78,7 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'name' => false,
-        'label' => false,
-        'type' => false
+        'versions' => false
     ];
 
     /**
@@ -173,9 +167,7 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'label' => 'label',
-        'type' => 'type'
+        'versions' => 'versions'
     ];
 
     /**
@@ -184,9 +176,7 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'label' => 'setLabel',
-        'type' => 'setType'
+        'versions' => 'setVersions'
     ];
 
     /**
@@ -195,9 +185,7 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'label' => 'getLabel',
-        'type' => 'getType'
+        'versions' => 'getVersions'
     ];
 
     /**
@@ -257,9 +245,7 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('label', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], 'text');
+        $this->setIfExists('versions', $data ?? [], null);
     }
 
     /**
@@ -289,11 +275,8 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['label'] === null) {
-            $invalidProperties[] = "'label' can't be null";
+        if ($this->container['versions'] === null) {
+            $invalidProperties[] = "'versions' can't be null";
         }
         return $invalidProperties;
     }
@@ -311,82 +294,28 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets name
+     * Gets versions
      *
-     * @return string
+     * @return \TemplateFox\Model\VersionItem[]
      */
-    public function getName()
+    public function getVersions()
     {
-        return $this->container['name'];
+        return $this->container['versions'];
     }
 
     /**
-     * Sets name
+     * Sets versions
      *
-     * @param string $name Field name
+     * @param \TemplateFox\Model\VersionItem[] $versions versions
      *
      * @return self
      */
-    public function setName($name)
+    public function setVersions($versions)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($versions)) {
+            throw new \InvalidArgumentException('non-nullable versions cannot be null');
         }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets label
-     *
-     * @return string
-     */
-    public function getLabel()
-    {
-        return $this->container['label'];
-    }
-
-    /**
-     * Sets label
-     *
-     * @param string $label Field label
-     *
-     * @return self
-     */
-    public function setLabel($label)
-    {
-        if (is_null($label)) {
-            throw new \InvalidArgumentException('non-nullable label cannot be null');
-        }
-        $this->container['label'] = $label;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type Field type: text, number
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $this->container['type'] = $type;
+        $this->container['versions'] = $versions;
 
         return $this;
     }

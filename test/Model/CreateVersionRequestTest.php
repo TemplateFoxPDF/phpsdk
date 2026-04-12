@@ -1,6 +1,6 @@
 <?php
 /**
- * TemplatesListResponseTest
+ * CreateVersionRequestTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace TemplateFox\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * TemplatesListResponseTest Class Doc Comment
+ * CreateVersionRequestTest Class Doc Comment
  *
  * @category    Class
- * @description Response for template list endpoint
+ * @description Request to create a version snapshot
  * @package     TemplateFox
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class TemplatesListResponseTest extends TestCase
+class CreateVersionRequestTest extends TestCase
 {
 
     /**
@@ -71,18 +71,27 @@ class TemplatesListResponseTest extends TestCase
     }
 
     /**
-     * Test "TemplatesListResponse"
+     * Test "CreateVersionRequest"
      */
-    public function testTemplatesListResponse()
+    public function testCreateVersionRequest()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "templates"
+     * Test attribute "tag"
      */
-    public function testPropertyTemplates()
+    public function testPropertyTag()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "description"
+     */
+    public function testPropertyDescription()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

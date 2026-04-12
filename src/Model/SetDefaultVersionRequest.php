@@ -1,6 +1,6 @@
 <?php
 /**
- * TemplateFieldSpec
+ * SetDefaultVersionRequest
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \TemplateFox\ObjectSerializer;
 
 /**
- * TemplateFieldSpec Class Doc Comment
+ * SetDefaultVersionRequest Class Doc Comment
  *
  * @category Class
- * @description Spec for array item fields
+ * @description Request to set the default version
  * @package  TemplateFox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializable
+class SetDefaultVersionRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
      *
      * @var string
      */
-    protected static $openAPIModelName = 'TemplateFieldSpec';
+    protected static $openAPIModelName = 'SetDefaultVersionRequest';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,7 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'label' => 'string',
-        'type' => 'string'
+        'version_number' => 'int'
     ];
 
     /**
@@ -71,9 +69,7 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'name' => null,
-        'label' => null,
-        'type' => null
+        'version_number' => null
     ];
 
     /**
@@ -82,9 +78,7 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'name' => false,
-        'label' => false,
-        'type' => false
+        'version_number' => false
     ];
 
     /**
@@ -173,9 +167,7 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'label' => 'label',
-        'type' => 'type'
+        'version_number' => 'version_number'
     ];
 
     /**
@@ -184,9 +176,7 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'label' => 'setLabel',
-        'type' => 'setType'
+        'version_number' => 'setVersionNumber'
     ];
 
     /**
@@ -195,9 +185,7 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'label' => 'getLabel',
-        'type' => 'getType'
+        'version_number' => 'getVersionNumber'
     ];
 
     /**
@@ -257,9 +245,7 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('label', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], 'text');
+        $this->setIfExists('version_number', $data ?? [], null);
     }
 
     /**
@@ -289,11 +275,8 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['label'] === null) {
-            $invalidProperties[] = "'label' can't be null";
+        if ($this->container['version_number'] === null) {
+            $invalidProperties[] = "'version_number' can't be null";
         }
         return $invalidProperties;
     }
@@ -311,82 +294,28 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets name
+     * Gets version_number
      *
-     * @return string
+     * @return int
      */
-    public function getName()
+    public function getVersionNumber()
     {
-        return $this->container['name'];
+        return $this->container['version_number'];
     }
 
     /**
-     * Sets name
+     * Sets version_number
      *
-     * @param string $name Field name
+     * @param int $version_number Version number to set as default
      *
      * @return self
      */
-    public function setName($name)
+    public function setVersionNumber($version_number)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($version_number)) {
+            throw new \InvalidArgumentException('non-nullable version_number cannot be null');
         }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets label
-     *
-     * @return string
-     */
-    public function getLabel()
-    {
-        return $this->container['label'];
-    }
-
-    /**
-     * Sets label
-     *
-     * @param string $label Field label
-     *
-     * @return self
-     */
-    public function setLabel($label)
-    {
-        if (is_null($label)) {
-            throw new \InvalidArgumentException('non-nullable label cannot be null');
-        }
-        $this->container['label'] = $label;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type Field type: text, number
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $this->container['type'] = $type;
+        $this->container['version_number'] = $version_number;
 
         return $this;
     }

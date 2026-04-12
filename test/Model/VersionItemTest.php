@@ -1,6 +1,6 @@
 <?php
 /**
- * TemplatesListResponseTest
+ * VersionItemTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace TemplateFox\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * TemplatesListResponseTest Class Doc Comment
+ * VersionItemTest Class Doc Comment
  *
  * @category    Class
- * @description Response for template list endpoint
+ * @description Version item in list response
  * @package     TemplateFox
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class TemplatesListResponseTest extends TestCase
+class VersionItemTest extends TestCase
 {
 
     /**
@@ -71,18 +71,54 @@ class TemplatesListResponseTest extends TestCase
     }
 
     /**
-     * Test "TemplatesListResponse"
+     * Test "VersionItem"
      */
-    public function testTemplatesListResponse()
+    public function testVersionItem()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "templates"
+     * Test attribute "version_number"
      */
-    public function testPropertyTemplates()
+    public function testPropertyVersionNumber()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "tag"
+     */
+    public function testPropertyTag()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "description"
+     */
+    public function testPropertyDescription()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "is_default"
+     */
+    public function testPropertyIsDefault()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "created_at"
+     */
+    public function testPropertyCreatedAt()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

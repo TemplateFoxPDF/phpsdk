@@ -15,12 +15,12 @@
         "sdk",
         "pdf-api"
     ],
-    "homepage": "https://pdftemplateapi.com",
+    "homepage": "https://templatefox.com",
     "license": "MIT",
     "authors": [
         {
             "name": "TemplateFox",
-            "homepage": "https://pdftemplateapi.com"
+            "homepage": "https://templatefox.com"
         }
     ],
     "require": {

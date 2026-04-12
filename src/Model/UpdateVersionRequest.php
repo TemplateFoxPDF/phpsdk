@@ -1,6 +1,6 @@
 <?php
 /**
- * TemplateFieldSpec
+ * UpdateVersionRequest
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \TemplateFox\ObjectSerializer;
 
 /**
- * TemplateFieldSpec Class Doc Comment
+ * UpdateVersionRequest Class Doc Comment
  *
  * @category Class
- * @description Spec for array item fields
+ * @description Request to update a version&#39;s tag or description
  * @package  TemplateFox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializable
+class UpdateVersionRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
      *
      * @var string
      */
-    protected static $openAPIModelName = 'TemplateFieldSpec';
+    protected static $openAPIModelName = 'UpdateVersionRequest';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,8 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'label' => 'string',
-        'type' => 'string'
+        'tag' => 'string',
+        'description' => 'string'
     ];
 
     /**
@@ -71,9 +70,8 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'name' => null,
-        'label' => null,
-        'type' => null
+        'tag' => null,
+        'description' => null
     ];
 
     /**
@@ -82,9 +80,8 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'name' => false,
-        'label' => false,
-        'type' => false
+        'tag' => true,
+        'description' => true
     ];
 
     /**
@@ -173,9 +170,8 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'label' => 'label',
-        'type' => 'type'
+        'tag' => 'tag',
+        'description' => 'description'
     ];
 
     /**
@@ -184,9 +180,8 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'label' => 'setLabel',
-        'type' => 'setType'
+        'tag' => 'setTag',
+        'description' => 'setDescription'
     ];
 
     /**
@@ -195,9 +190,8 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'label' => 'getLabel',
-        'type' => 'getType'
+        'tag' => 'getTag',
+        'description' => 'getDescription'
     ];
 
     /**
@@ -257,9 +251,8 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('label', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], 'text');
+        $this->setIfExists('tag', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
     }
 
     /**
@@ -289,12 +282,18 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
+        if (!is_null($this->container['tag']) && (mb_strlen($this->container['tag']) > 50)) {
+            $invalidProperties[] = "invalid value for 'tag', the character length must be smaller than or equal to 50.";
         }
-        if ($this->container['label'] === null) {
-            $invalidProperties[] = "'label' can't be null";
+
+        if (!is_null($this->container['tag']) && !preg_match("/^[a-z0-9][a-z0-9_-]{0,48}[a-z0-9]$/", $this->container['tag'])) {
+            $invalidProperties[] = "invalid value for 'tag', must be conform to the pattern /^[a-z0-9][a-z0-9_-]{0,48}[a-z0-9]$/.";
         }
+
+        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 500)) {
+            $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 500.";
+        }
+
         return $invalidProperties;
     }
 
@@ -311,82 +310,80 @@ class TemplateFieldSpec implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name Field name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets label
-     *
-     * @return string
-     */
-    public function getLabel()
-    {
-        return $this->container['label'];
-    }
-
-    /**
-     * Sets label
-     *
-     * @param string $label Field label
-     *
-     * @return self
-     */
-    public function setLabel($label)
-    {
-        if (is_null($label)) {
-            throw new \InvalidArgumentException('non-nullable label cannot be null');
-        }
-        $this->container['label'] = $label;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
+     * Gets tag
      *
      * @return string|null
      */
-    public function getType()
+    public function getTag()
     {
-        return $this->container['type'];
+        return $this->container['tag'];
     }
 
     /**
-     * Sets type
+     * Sets tag
      *
-     * @param string|null $type Field type: text, number
+     * @param string|null $tag tag
      *
      * @return self
      */
-    public function setType($type)
+    public function setTag($tag)
     {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        if (is_null($tag)) {
+            array_push($this->openAPINullablesSetToNull, 'tag');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tag', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['type'] = $type;
+        if (!is_null($tag) && (mb_strlen($tag) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $tag when calling UpdateVersionRequest., must be smaller than or equal to 50.');
+        }
+        if (!is_null($tag) && (!preg_match("/^[a-z0-9][a-z0-9_-]{0,48}[a-z0-9]$/", ObjectSerializer::toString($tag)))) {
+            throw new \InvalidArgumentException("invalid value for \$tag when calling UpdateVersionRequest., must conform to the pattern /^[a-z0-9][a-z0-9_-]{0,48}[a-z0-9]$/.");
+        }
+
+        $this->container['tag'] = $tag;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description description
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        if (is_null($description)) {
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($description) && (mb_strlen($description) > 500)) {
+            throw new \InvalidArgumentException('invalid length for $description when calling UpdateVersionRequest., must be smaller than or equal to 500.');
+        }
+
+        $this->container['description'] = $description;
 
         return $this;
     }

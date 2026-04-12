@@ -1,6 +1,6 @@
 <?php
 /**
- * TemplatesListResponseTest
+ * SetDefaultVersionRequestTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace TemplateFox\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * TemplatesListResponseTest Class Doc Comment
+ * SetDefaultVersionRequestTest Class Doc Comment
  *
  * @category    Class
- * @description Response for template list endpoint
+ * @description Request to set the default version
  * @package     TemplateFox
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class TemplatesListResponseTest extends TestCase
+class SetDefaultVersionRequestTest extends TestCase
 {
 
     /**
@@ -71,18 +71,18 @@ class TemplatesListResponseTest extends TestCase
     }
 
     /**
-     * Test "TemplatesListResponse"
+     * Test "SetDefaultVersionRequest"
      */
-    public function testTemplatesListResponse()
+    public function testSetDefaultVersionRequest()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "templates"
+     * Test attribute "version_number"
      */
-    public function testPropertyTemplates()
+    public function testPropertyVersionNumber()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
