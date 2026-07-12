@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateAsyncPdfRequest
+ * CreateImageRequest
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \TemplateFox\ObjectSerializer;
 
 /**
- * CreateAsyncPdfRequest Class Doc Comment
+ * CreateImageRequest Class Doc Comment
  *
  * @category Class
- * @description Request model for async PDF generation
+ * @description Request model for image generation
  * @package  TemplateFox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CreateAsyncPdfRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateImageRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class CreateAsyncPdfRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @var string
      */
-    protected static $openAPIModelName = 'CreateAsyncPdfRequest';
+    protected static $openAPIModelName = 'CreateImageRequest';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -59,16 +59,17 @@ class CreateAsyncPdfRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $openAPITypes = [
         'template_id' => 'string',
+        'modifications' => '\TemplateFox\Model\Modification[]',
         'data' => 'array<string,mixed>',
-        'export_type' => '\TemplateFox\Model\AppRoutersV1PdfAsyncExportType',
+        'format' => '\TemplateFox\Model\ImageFormat',
+        'width' => 'int',
+        'quality' => 'int',
+        'export_type' => '\TemplateFox\Model\AppRoutersV1DeliveryExportType',
         'expiration' => 'int',
         'filename' => 'string',
         'store_s3' => 'bool',
         's3_filepath' => 'string',
         's3_bucket' => 'string',
-        'webhook_url' => 'string',
-        'webhook_secret' => 'string',
-        'pdf_variant' => '\TemplateFox\Model\PdfVariant',
         'version' => 'string'
     ];
 
@@ -81,16 +82,17 @@ class CreateAsyncPdfRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $openAPIFormats = [
         'template_id' => null,
+        'modifications' => null,
         'data' => null,
+        'format' => null,
+        'width' => null,
+        'quality' => null,
         'export_type' => null,
         'expiration' => null,
         'filename' => null,
         'store_s3' => null,
         's3_filepath' => null,
         's3_bucket' => null,
-        'webhook_url' => 'uri',
-        'webhook_secret' => null,
-        'pdf_variant' => null,
         'version' => null
     ];
 
@@ -101,16 +103,17 @@ class CreateAsyncPdfRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static array $openAPINullables = [
         'template_id' => false,
+        'modifications' => true,
         'data' => false,
+        'format' => false,
+        'width' => true,
+        'quality' => false,
         'export_type' => false,
         'expiration' => false,
         'filename' => true,
         'store_s3' => false,
         's3_filepath' => true,
         's3_bucket' => true,
-        'webhook_url' => true,
-        'webhook_secret' => true,
-        'pdf_variant' => true,
         'version' => true
     ];
 
@@ -201,16 +204,17 @@ class CreateAsyncPdfRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $attributeMap = [
         'template_id' => 'template_id',
+        'modifications' => 'modifications',
         'data' => 'data',
+        'format' => 'format',
+        'width' => 'width',
+        'quality' => 'quality',
         'export_type' => 'export_type',
         'expiration' => 'expiration',
         'filename' => 'filename',
         'store_s3' => 'store_s3',
         's3_filepath' => 's3_filepath',
         's3_bucket' => 's3_bucket',
-        'webhook_url' => 'webhook_url',
-        'webhook_secret' => 'webhook_secret',
-        'pdf_variant' => 'pdf_variant',
         'version' => 'version'
     ];
 
@@ -221,16 +225,17 @@ class CreateAsyncPdfRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $setters = [
         'template_id' => 'setTemplateId',
+        'modifications' => 'setModifications',
         'data' => 'setData',
+        'format' => 'setFormat',
+        'width' => 'setWidth',
+        'quality' => 'setQuality',
         'export_type' => 'setExportType',
         'expiration' => 'setExpiration',
         'filename' => 'setFilename',
         'store_s3' => 'setStoreS3',
         's3_filepath' => 'setS3Filepath',
         's3_bucket' => 'setS3Bucket',
-        'webhook_url' => 'setWebhookUrl',
-        'webhook_secret' => 'setWebhookSecret',
-        'pdf_variant' => 'setPdfVariant',
         'version' => 'setVersion'
     ];
 
@@ -241,16 +246,17 @@ class CreateAsyncPdfRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static $getters = [
         'template_id' => 'getTemplateId',
+        'modifications' => 'getModifications',
         'data' => 'getData',
+        'format' => 'getFormat',
+        'width' => 'getWidth',
+        'quality' => 'getQuality',
         'export_type' => 'getExportType',
         'expiration' => 'getExpiration',
         'filename' => 'getFilename',
         'store_s3' => 'getStoreS3',
         's3_filepath' => 'getS3Filepath',
         's3_bucket' => 'getS3Bucket',
-        'webhook_url' => 'getWebhookUrl',
-        'webhook_secret' => 'getWebhookSecret',
-        'pdf_variant' => 'getPdfVariant',
         'version' => 'getVersion'
     ];
 
@@ -312,16 +318,17 @@ class CreateAsyncPdfRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     public function __construct(?array $data = null)
     {
         $this->setIfExists('template_id', $data ?? [], null);
+        $this->setIfExists('modifications', $data ?? [], null);
         $this->setIfExists('data', $data ?? [], null);
+        $this->setIfExists('format', $data ?? [], null);
+        $this->setIfExists('width', $data ?? [], null);
+        $this->setIfExists('quality', $data ?? [], 85);
         $this->setIfExists('export_type', $data ?? [], null);
         $this->setIfExists('expiration', $data ?? [], 86400);
         $this->setIfExists('filename', $data ?? [], null);
         $this->setIfExists('store_s3', $data ?? [], false);
         $this->setIfExists('s3_filepath', $data ?? [], null);
         $this->setIfExists('s3_bucket', $data ?? [], null);
-        $this->setIfExists('webhook_url', $data ?? [], null);
-        $this->setIfExists('webhook_secret', $data ?? [], null);
-        $this->setIfExists('pdf_variant', $data ?? [], null);
         $this->setIfExists('version', $data ?? [], null);
     }
 
@@ -363,9 +370,26 @@ class CreateAsyncPdfRequest implements ModelInterface, ArrayAccess, \JsonSeriali
             $invalidProperties[] = "invalid value for 'template_id', the character length must be bigger than or equal to 12.";
         }
 
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
+        if (!is_null($this->container['modifications']) && (count($this->container['modifications']) > 100)) {
+            $invalidProperties[] = "invalid value for 'modifications', number of items must be less than or equal to 100.";
         }
+
+        if (!is_null($this->container['width']) && ($this->container['width'] > 4000)) {
+            $invalidProperties[] = "invalid value for 'width', must be smaller than or equal to 4000.";
+        }
+
+        if (!is_null($this->container['width']) && ($this->container['width'] < 100)) {
+            $invalidProperties[] = "invalid value for 'width', must be bigger than or equal to 100.";
+        }
+
+        if (!is_null($this->container['quality']) && ($this->container['quality'] > 100)) {
+            $invalidProperties[] = "invalid value for 'quality', must be smaller than or equal to 100.";
+        }
+
+        if (!is_null($this->container['quality']) && ($this->container['quality'] < 1)) {
+            $invalidProperties[] = "invalid value for 'quality', must be bigger than or equal to 1.";
+        }
+
         if (!is_null($this->container['expiration']) && ($this->container['expiration'] > 604800)) {
             $invalidProperties[] = "invalid value for 'expiration', must be smaller than or equal to 604800.";
         }
@@ -400,22 +424,6 @@ class CreateAsyncPdfRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
         if (!is_null($this->container['s3_bucket']) && !preg_match("/^[a-z0-9][a-z0-9.\\-]*[a-z0-9]$/", $this->container['s3_bucket'])) {
             $invalidProperties[] = "invalid value for 's3_bucket', must be conform to the pattern /^[a-z0-9][a-z0-9.\\-]*[a-z0-9]$/.";
-        }
-
-        if (!is_null($this->container['webhook_url']) && (mb_strlen($this->container['webhook_url']) > 2083)) {
-            $invalidProperties[] = "invalid value for 'webhook_url', the character length must be smaller than or equal to 2083.";
-        }
-
-        if (!is_null($this->container['webhook_url']) && (mb_strlen($this->container['webhook_url']) < 1)) {
-            $invalidProperties[] = "invalid value for 'webhook_url', the character length must be bigger than or equal to 1.";
-        }
-
-        if (!is_null($this->container['webhook_secret']) && (mb_strlen($this->container['webhook_secret']) > 256)) {
-            $invalidProperties[] = "invalid value for 'webhook_secret', the character length must be smaller than or equal to 256.";
-        }
-
-        if (!is_null($this->container['webhook_secret']) && (mb_strlen($this->container['webhook_secret']) < 16)) {
-            $invalidProperties[] = "invalid value for 'webhook_secret', the character length must be bigger than or equal to 16.";
         }
 
         if (!is_null($this->container['version']) && (mb_strlen($this->container['version']) > 50)) {
@@ -460,10 +468,10 @@ class CreateAsyncPdfRequest implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable template_id cannot be null');
         }
         if ((mb_strlen($template_id) > 12)) {
-            throw new \InvalidArgumentException('invalid length for $template_id when calling CreateAsyncPdfRequest., must be smaller than or equal to 12.');
+            throw new \InvalidArgumentException('invalid length for $template_id when calling CreateImageRequest., must be smaller than or equal to 12.');
         }
         if ((mb_strlen($template_id) < 12)) {
-            throw new \InvalidArgumentException('invalid length for $template_id when calling CreateAsyncPdfRequest., must be bigger than or equal to 12.');
+            throw new \InvalidArgumentException('invalid length for $template_id when calling CreateImageRequest., must be bigger than or equal to 12.');
         }
 
         $this->container['template_id'] = $template_id;
@@ -472,9 +480,47 @@ class CreateAsyncPdfRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
+     * Gets modifications
+     *
+     * @return \TemplateFox\Model\Modification[]|null
+     */
+    public function getModifications()
+    {
+        return $this->container['modifications'];
+    }
+
+    /**
+     * Sets modifications
+     *
+     * @param \TemplateFox\Model\Modification[]|null $modifications modifications
+     *
+     * @return self
+     */
+    public function setModifications($modifications)
+    {
+        if (is_null($modifications)) {
+            array_push($this->openAPINullablesSetToNull, 'modifications');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('modifications', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        if (!is_null($modifications) && (count($modifications) > 100)) {
+            throw new \InvalidArgumentException('invalid value for $modifications when calling CreateImageRequest., number of items must be less than or equal to 100.');
+        }
+        $this->container['modifications'] = $modifications;
+
+        return $this;
+    }
+
+    /**
      * Gets data
      *
-     * @return array<string,mixed>
+     * @return array<string,mixed>|null
      */
     public function getData()
     {
@@ -484,7 +530,7 @@ class CreateAsyncPdfRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets data
      *
-     * @param array<string,mixed> $data Key-value data to render in the template.
+     * @param array<string,mixed>|null $data Optional key-value data merged into `{{ }}` template variables. For most image templates, prefer `modifications` instead.
      *
      * @return self
      */
@@ -499,9 +545,113 @@ class CreateAsyncPdfRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
+     * Gets format
+     *
+     * @return \TemplateFox\Model\ImageFormat|null
+     */
+    public function getFormat()
+    {
+        return $this->container['format'];
+    }
+
+    /**
+     * Sets format
+     *
+     * @param \TemplateFox\Model\ImageFormat|null $format Output image format: `png` (default), `jpeg` or `webp`.
+     *
+     * @return self
+     */
+    public function setFormat($format)
+    {
+        if (is_null($format)) {
+            throw new \InvalidArgumentException('non-nullable format cannot be null');
+        }
+        $this->container['format'] = $format;
+
+        return $this;
+    }
+
+    /**
+     * Gets width
+     *
+     * @return int|null
+     */
+    public function getWidth()
+    {
+        return $this->container['width'];
+    }
+
+    /**
+     * Sets width
+     *
+     * @param int|null $width width
+     *
+     * @return self
+     */
+    public function setWidth($width)
+    {
+        if (is_null($width)) {
+            array_push($this->openAPINullablesSetToNull, 'width');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('width', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+
+        if (!is_null($width) && ($width > 4000)) {
+            throw new \InvalidArgumentException('invalid value for $width when calling CreateImageRequest., must be smaller than or equal to 4000.');
+        }
+        if (!is_null($width) && ($width < 100)) {
+            throw new \InvalidArgumentException('invalid value for $width when calling CreateImageRequest., must be bigger than or equal to 100.');
+        }
+
+        $this->container['width'] = $width;
+
+        return $this;
+    }
+
+    /**
+     * Gets quality
+     *
+     * @return int|null
+     */
+    public function getQuality()
+    {
+        return $this->container['quality'];
+    }
+
+    /**
+     * Sets quality
+     *
+     * @param int|null $quality Compression quality for `jpeg`/`webp` (1-100). Ignored for `png`.
+     *
+     * @return self
+     */
+    public function setQuality($quality)
+    {
+        if (is_null($quality)) {
+            throw new \InvalidArgumentException('non-nullable quality cannot be null');
+        }
+
+        if (($quality > 100)) {
+            throw new \InvalidArgumentException('invalid value for $quality when calling CreateImageRequest., must be smaller than or equal to 100.');
+        }
+        if (($quality < 1)) {
+            throw new \InvalidArgumentException('invalid value for $quality when calling CreateImageRequest., must be bigger than or equal to 1.');
+        }
+
+        $this->container['quality'] = $quality;
+
+        return $this;
+    }
+
+    /**
      * Gets export_type
      *
-     * @return \TemplateFox\Model\AppRoutersV1PdfAsyncExportType|null
+     * @return \TemplateFox\Model\AppRoutersV1DeliveryExportType|null
      */
     public function getExportType()
     {
@@ -511,7 +661,7 @@ class CreateAsyncPdfRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets export_type
      *
-     * @param \TemplateFox\Model\AppRoutersV1PdfAsyncExportType|null $export_type Export format. Currently only `url` is supported for async.
+     * @param \TemplateFox\Model\AppRoutersV1DeliveryExportType|null $export_type Export format: `url` uploads to CDN and returns URL, `binary` returns raw image bytes
      *
      * @return self
      */
@@ -538,7 +688,7 @@ class CreateAsyncPdfRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets expiration
      *
-     * @param int|null $expiration URL expiration in seconds (60-604800). Default: 86400 (24 hours).
+     * @param int|null $expiration URL expiration in seconds. Min: 60 (1 min), Max: 604800 (7 days). Only applies to `url` export type.
      *
      * @return self
      */
@@ -549,10 +699,10 @@ class CreateAsyncPdfRequest implements ModelInterface, ArrayAccess, \JsonSeriali
         }
 
         if (($expiration > 604800)) {
-            throw new \InvalidArgumentException('invalid value for $expiration when calling CreateAsyncPdfRequest., must be smaller than or equal to 604800.');
+            throw new \InvalidArgumentException('invalid value for $expiration when calling CreateImageRequest., must be smaller than or equal to 604800.');
         }
         if (($expiration < 60)) {
-            throw new \InvalidArgumentException('invalid value for $expiration when calling CreateAsyncPdfRequest., must be bigger than or equal to 60.');
+            throw new \InvalidArgumentException('invalid value for $expiration when calling CreateImageRequest., must be bigger than or equal to 60.');
         }
 
         $this->container['expiration'] = $expiration;
@@ -590,10 +740,10 @@ class CreateAsyncPdfRequest implements ModelInterface, ArrayAccess, \JsonSeriali
             }
         }
         if (!is_null($filename) && (mb_strlen($filename) > 100)) {
-            throw new \InvalidArgumentException('invalid length for $filename when calling CreateAsyncPdfRequest., must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid length for $filename when calling CreateImageRequest., must be smaller than or equal to 100.');
         }
         if (!is_null($filename) && (!preg_match("/^[a-zA-Z0-9_\\-\\.]+$/", ObjectSerializer::toString($filename)))) {
-            throw new \InvalidArgumentException("invalid value for \$filename when calling CreateAsyncPdfRequest., must conform to the pattern /^[a-zA-Z0-9_\\-\\.]+$/.");
+            throw new \InvalidArgumentException("invalid value for \$filename when calling CreateImageRequest., must conform to the pattern /^[a-zA-Z0-9_\\-\\.]+$/.");
         }
 
         $this->container['filename'] = $filename;
@@ -614,7 +764,7 @@ class CreateAsyncPdfRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets store_s3
      *
-     * @param bool|null $store_s3 Upload to your configured S3 bucket instead of CDN.
+     * @param bool|null $store_s3 Upload to your configured S3 bucket instead of CDN
      *
      * @return self
      */
@@ -658,10 +808,10 @@ class CreateAsyncPdfRequest implements ModelInterface, ArrayAccess, \JsonSeriali
             }
         }
         if (!is_null($s3_filepath) && (mb_strlen($s3_filepath) > 500)) {
-            throw new \InvalidArgumentException('invalid length for $s3_filepath when calling CreateAsyncPdfRequest., must be smaller than or equal to 500.');
+            throw new \InvalidArgumentException('invalid length for $s3_filepath when calling CreateImageRequest., must be smaller than or equal to 500.');
         }
         if (!is_null($s3_filepath) && (!preg_match("/^[a-zA-Z0-9_\\-\\.\/]+$/", ObjectSerializer::toString($s3_filepath)))) {
-            throw new \InvalidArgumentException("invalid value for \$s3_filepath when calling CreateAsyncPdfRequest., must conform to the pattern /^[a-zA-Z0-9_\\-\\.\/]+$/.");
+            throw new \InvalidArgumentException("invalid value for \$s3_filepath when calling CreateImageRequest., must conform to the pattern /^[a-zA-Z0-9_\\-\\.\/]+$/.");
         }
 
         $this->container['s3_filepath'] = $s3_filepath;
@@ -699,132 +849,16 @@ class CreateAsyncPdfRequest implements ModelInterface, ArrayAccess, \JsonSeriali
             }
         }
         if (!is_null($s3_bucket) && (mb_strlen($s3_bucket) > 63)) {
-            throw new \InvalidArgumentException('invalid length for $s3_bucket when calling CreateAsyncPdfRequest., must be smaller than or equal to 63.');
+            throw new \InvalidArgumentException('invalid length for $s3_bucket when calling CreateImageRequest., must be smaller than or equal to 63.');
         }
         if (!is_null($s3_bucket) && (mb_strlen($s3_bucket) < 3)) {
-            throw new \InvalidArgumentException('invalid length for $s3_bucket when calling CreateAsyncPdfRequest., must be bigger than or equal to 3.');
+            throw new \InvalidArgumentException('invalid length for $s3_bucket when calling CreateImageRequest., must be bigger than or equal to 3.');
         }
         if (!is_null($s3_bucket) && (!preg_match("/^[a-z0-9][a-z0-9.\\-]*[a-z0-9]$/", ObjectSerializer::toString($s3_bucket)))) {
-            throw new \InvalidArgumentException("invalid value for \$s3_bucket when calling CreateAsyncPdfRequest., must conform to the pattern /^[a-z0-9][a-z0-9.\\-]*[a-z0-9]$/.");
+            throw new \InvalidArgumentException("invalid value for \$s3_bucket when calling CreateImageRequest., must conform to the pattern /^[a-z0-9][a-z0-9.\\-]*[a-z0-9]$/.");
         }
 
         $this->container['s3_bucket'] = $s3_bucket;
-
-        return $this;
-    }
-
-    /**
-     * Gets webhook_url
-     *
-     * @return string|null
-     */
-    public function getWebhookUrl()
-    {
-        return $this->container['webhook_url'];
-    }
-
-    /**
-     * Sets webhook_url
-     *
-     * @param string|null $webhook_url webhook_url
-     *
-     * @return self
-     */
-    public function setWebhookUrl($webhook_url)
-    {
-        if (is_null($webhook_url)) {
-            array_push($this->openAPINullablesSetToNull, 'webhook_url');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('webhook_url', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($webhook_url) && (mb_strlen($webhook_url) > 2083)) {
-            throw new \InvalidArgumentException('invalid length for $webhook_url when calling CreateAsyncPdfRequest., must be smaller than or equal to 2083.');
-        }
-        if (!is_null($webhook_url) && (mb_strlen($webhook_url) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $webhook_url when calling CreateAsyncPdfRequest., must be bigger than or equal to 1.');
-        }
-
-        $this->container['webhook_url'] = $webhook_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets webhook_secret
-     *
-     * @return string|null
-     */
-    public function getWebhookSecret()
-    {
-        return $this->container['webhook_secret'];
-    }
-
-    /**
-     * Sets webhook_secret
-     *
-     * @param string|null $webhook_secret webhook_secret
-     *
-     * @return self
-     */
-    public function setWebhookSecret($webhook_secret)
-    {
-        if (is_null($webhook_secret)) {
-            array_push($this->openAPINullablesSetToNull, 'webhook_secret');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('webhook_secret', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        if (!is_null($webhook_secret) && (mb_strlen($webhook_secret) > 256)) {
-            throw new \InvalidArgumentException('invalid length for $webhook_secret when calling CreateAsyncPdfRequest., must be smaller than or equal to 256.');
-        }
-        if (!is_null($webhook_secret) && (mb_strlen($webhook_secret) < 16)) {
-            throw new \InvalidArgumentException('invalid length for $webhook_secret when calling CreateAsyncPdfRequest., must be bigger than or equal to 16.');
-        }
-
-        $this->container['webhook_secret'] = $webhook_secret;
-
-        return $this;
-    }
-
-    /**
-     * Gets pdf_variant
-     *
-     * @return \TemplateFox\Model\PdfVariant|null
-     */
-    public function getPdfVariant()
-    {
-        return $this->container['pdf_variant'];
-    }
-
-    /**
-     * Sets pdf_variant
-     *
-     * @param \TemplateFox\Model\PdfVariant|null $pdf_variant pdf_variant
-     *
-     * @return self
-     */
-    public function setPdfVariant($pdf_variant)
-    {
-        if (is_null($pdf_variant)) {
-            array_push($this->openAPINullablesSetToNull, 'pdf_variant');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('pdf_variant', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['pdf_variant'] = $pdf_variant;
 
         return $this;
     }
@@ -859,7 +893,7 @@ class CreateAsyncPdfRequest implements ModelInterface, ArrayAccess, \JsonSeriali
             }
         }
         if (!is_null($version) && (mb_strlen($version) > 50)) {
-            throw new \InvalidArgumentException('invalid length for $version when calling CreateAsyncPdfRequest., must be smaller than or equal to 50.');
+            throw new \InvalidArgumentException('invalid length for $version when calling CreateImageRequest., must be smaller than or equal to 50.');
         }
 
         $this->container['version'] = $version;

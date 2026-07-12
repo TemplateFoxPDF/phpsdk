@@ -1,6 +1,6 @@
 <?php
 /**
- * PdfVariantTest
+ * ModificationTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace TemplateFox\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * PdfVariantTest Class Doc Comment
+ * ModificationTest Class Doc Comment
  *
  * @category    Class
- * @description PDF variant for standards-compliant output (PDF/A).
+ * @description A single element modification, addressed by layer name.
  * @package     TemplateFox
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class PdfVariantTest extends TestCase
+class ModificationTest extends TestCase
 {
 
     /**
@@ -71,9 +71,63 @@ class PdfVariantTest extends TestCase
     }
 
     /**
-     * Test "PdfVariant"
+     * Test "Modification"
      */
-    public function testPdfVariant()
+    public function testModification()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "name"
+     */
+    public function testPropertyName()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "text"
+     */
+    public function testPropertyText()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "image_url"
+     */
+    public function testPropertyImageUrl()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "color"
+     */
+    public function testPropertyColor()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "background"
+     */
+    public function testPropertyBackground()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "hidden"
+     */
+    public function testPropertyHidden()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

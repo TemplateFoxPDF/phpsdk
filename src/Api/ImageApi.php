@@ -1,6 +1,6 @@
 <?php
 /**
- * PDFApi
+ * ImageApi
  * PHP version 8.1
  *
  * @category Class
@@ -43,14 +43,14 @@ use TemplateFox\HeaderSelector;
 use TemplateFox\ObjectSerializer;
 
 /**
- * PDFApi Class Doc Comment
+ * ImageApi Class Doc Comment
  *
  * @category Class
  * @package  TemplateFox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class PDFApi
+class ImageApi
 {
     /**
      * @var ClientInterface
@@ -74,7 +74,7 @@ class PDFApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'createPdf' => [
+        'createImage' => [
             'application/json',
         ],
     ];
@@ -126,38 +126,38 @@ class PDFApi
     }
 
     /**
-     * Operation createPdf
+     * Operation createImage
      *
-     * Generate PDF from template
+     * Generate image from template
      *
-     * @param  \TemplateFox\Model\CreatePdfRequest $create_pdf_request create_pdf_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPdf'] to see the possible values for this operation
+     * @param  \TemplateFox\Model\CreateImageRequest $create_image_request create_image_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createImage'] to see the possible values for this operation
      *
      * @throws \TemplateFox\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \TemplateFox\Model\CreatePdfResponse|\TemplateFox\Model\HTTPValidationError
+     * @return \TemplateFox\Model\CreateImageResponse|\TemplateFox\Model\HTTPValidationError
      */
-    public function createPdf($create_pdf_request, string $contentType = self::contentTypes['createPdf'][0])
+    public function createImage($create_image_request, string $contentType = self::contentTypes['createImage'][0])
     {
-        list($response) = $this->createPdfWithHttpInfo($create_pdf_request, $contentType);
+        list($response) = $this->createImageWithHttpInfo($create_image_request, $contentType);
         return $response;
     }
 
     /**
-     * Operation createPdfWithHttpInfo
+     * Operation createImageWithHttpInfo
      *
-     * Generate PDF from template
+     * Generate image from template
      *
-     * @param  \TemplateFox\Model\CreatePdfRequest $create_pdf_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPdf'] to see the possible values for this operation
+     * @param  \TemplateFox\Model\CreateImageRequest $create_image_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createImage'] to see the possible values for this operation
      *
      * @throws \TemplateFox\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \TemplateFox\Model\CreatePdfResponse|\TemplateFox\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \TemplateFox\Model\CreateImageResponse|\TemplateFox\Model\HTTPValidationError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createPdfWithHttpInfo($create_pdf_request, string $contentType = self::contentTypes['createPdf'][0])
+    public function createImageWithHttpInfo($create_image_request, string $contentType = self::contentTypes['createImage'][0])
     {
-        $request = $this->createPdfRequest($create_pdf_request, $contentType);
+        $request = $this->createImageRequest($create_image_request, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -185,7 +185,7 @@ class PDFApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\TemplateFox\Model\CreatePdfResponse',
+                        '\TemplateFox\Model\CreateImageResponse',
                         $request,
                         $response,
                     );
@@ -213,7 +213,7 @@ class PDFApi
             }
 
             return $this->handleResponseWithDataType(
-                '\TemplateFox\Model\CreatePdfResponse',
+                '\TemplateFox\Model\CreateImageResponse',
                 $request,
                 $response,
             );
@@ -222,7 +222,7 @@ class PDFApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\TemplateFox\Model\CreatePdfResponse',
+                        '\TemplateFox\Model\CreateImageResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -243,19 +243,19 @@ class PDFApi
     }
 
     /**
-     * Operation createPdfAsync
+     * Operation createImageAsync
      *
-     * Generate PDF from template
+     * Generate image from template
      *
-     * @param  \TemplateFox\Model\CreatePdfRequest $create_pdf_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPdf'] to see the possible values for this operation
+     * @param  \TemplateFox\Model\CreateImageRequest $create_image_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPdfAsync($create_pdf_request, string $contentType = self::contentTypes['createPdf'][0])
+    public function createImageAsync($create_image_request, string $contentType = self::contentTypes['createImage'][0])
     {
-        return $this->createPdfAsyncWithHttpInfo($create_pdf_request, $contentType)
+        return $this->createImageAsyncWithHttpInfo($create_image_request, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -264,20 +264,20 @@ class PDFApi
     }
 
     /**
-     * Operation createPdfAsyncWithHttpInfo
+     * Operation createImageAsyncWithHttpInfo
      *
-     * Generate PDF from template
+     * Generate image from template
      *
-     * @param  \TemplateFox\Model\CreatePdfRequest $create_pdf_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPdf'] to see the possible values for this operation
+     * @param  \TemplateFox\Model\CreateImageRequest $create_image_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createPdfAsyncWithHttpInfo($create_pdf_request, string $contentType = self::contentTypes['createPdf'][0])
+    public function createImageAsyncWithHttpInfo($create_image_request, string $contentType = self::contentTypes['createImage'][0])
     {
-        $returnType = '\TemplateFox\Model\CreatePdfResponse';
-        $request = $this->createPdfRequest($create_pdf_request, $contentType);
+        $returnType = '\TemplateFox\Model\CreateImageResponse';
+        $request = $this->createImageRequest($create_image_request, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -316,26 +316,26 @@ class PDFApi
     }
 
     /**
-     * Create request for operation 'createPdf'
+     * Create request for operation 'createImage'
      *
-     * @param  \TemplateFox\Model\CreatePdfRequest $create_pdf_request (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createPdf'] to see the possible values for this operation
+     * @param  \TemplateFox\Model\CreateImageRequest $create_image_request (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createPdfRequest($create_pdf_request, string $contentType = self::contentTypes['createPdf'][0])
+    public function createImageRequest($create_image_request, string $contentType = self::contentTypes['createImage'][0])
     {
 
-        // verify the required parameter 'create_pdf_request' is set
-        if ($create_pdf_request === null || (is_array($create_pdf_request) && count($create_pdf_request) === 0)) {
+        // verify the required parameter 'create_image_request' is set
+        if ($create_image_request === null || (is_array($create_image_request) && count($create_image_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $create_pdf_request when calling createPdf'
+                'Missing the required parameter $create_image_request when calling createImage'
             );
         }
 
 
-        $resourcePath = '/v1/pdf/create';
+        $resourcePath = '/v1/image/create';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -347,18 +347,18 @@ class PDFApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', 'application/pdf', ],
+            ['application/json', 'image/png', ],
             $contentType,
             $multipart
         );
 
         // for model (json/xml)
-        if (isset($create_pdf_request)) {
+        if (isset($create_image_request)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_pdf_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_image_request));
             } else {
-                $httpBody = $create_pdf_request;
+                $httpBody = $create_image_request;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

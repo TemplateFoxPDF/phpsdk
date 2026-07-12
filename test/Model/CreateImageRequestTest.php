@@ -1,6 +1,6 @@
 <?php
 /**
- * CreatePdfRequestTest
+ * CreateImageRequestTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace TemplateFox\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CreatePdfRequestTest Class Doc Comment
+ * CreateImageRequestTest Class Doc Comment
  *
  * @category    Class
- * @description Request model for PDF generation
+ * @description Request model for image generation
  * @package     TemplateFox
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CreatePdfRequestTest extends TestCase
+class CreateImageRequestTest extends TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class CreatePdfRequestTest extends TestCase
     }
 
     /**
-     * Test "CreatePdfRequest"
+     * Test "CreateImageRequest"
      */
-    public function testCreatePdfRequest()
+    public function testCreateImageRequest()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -89,9 +89,45 @@ class CreatePdfRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "modifications"
+     */
+    public function testPropertyModifications()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "data"
      */
     public function testPropertyData()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "format"
+     */
+    public function testPropertyFormat()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "width"
+     */
+    public function testPropertyWidth()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "quality"
+     */
+    public function testPropertyQuality()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -146,15 +182,6 @@ class CreatePdfRequestTest extends TestCase
      * Test attribute "s3_bucket"
      */
     public function testPropertyS3Bucket()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "pdf_variant"
-     */
-    public function testPropertyPdfVariant()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

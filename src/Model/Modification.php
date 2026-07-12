@@ -1,6 +1,6 @@
 <?php
 /**
- * S3ConfigResponse
+ * Modification
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \TemplateFox\ObjectSerializer;
 
 /**
- * S3ConfigResponse Class Doc Comment
+ * Modification Class Doc Comment
  *
  * @category Class
- * @description Response for S3 configuration (with masked secret)
+ * @description A single element modification, addressed by layer name.
  * @package  TemplateFox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class S3ConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class Modification implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class S3ConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @var string
      */
-    protected static $openAPIModelName = 'S3ConfigResponse';
+    protected static $openAPIModelName = 'Modification';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,12 +58,12 @@ class S3ConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        'configured' => 'bool',
-        'endpoint_url' => 'string',
-        'access_key_id' => 'string',
-        'secret_access_key_masked' => 'string',
-        'bucket_name' => 'string',
-        'default_prefix' => 'string'
+        'name' => 'string',
+        'text' => 'string',
+        'image_url' => 'string',
+        'color' => 'string',
+        'background' => 'string',
+        'hidden' => 'bool'
     ];
 
     /**
@@ -74,12 +74,12 @@ class S3ConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'configured' => null,
-        'endpoint_url' => null,
-        'access_key_id' => null,
-        'secret_access_key_masked' => null,
-        'bucket_name' => null,
-        'default_prefix' => null
+        'name' => null,
+        'text' => null,
+        'image_url' => null,
+        'color' => null,
+        'background' => null,
+        'hidden' => null
     ];
 
     /**
@@ -88,12 +88,12 @@ class S3ConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'configured' => false,
-        'endpoint_url' => false,
-        'access_key_id' => false,
-        'secret_access_key_masked' => false,
-        'bucket_name' => false,
-        'default_prefix' => false
+        'name' => false,
+        'text' => true,
+        'image_url' => true,
+        'color' => true,
+        'background' => true,
+        'hidden' => true
     ];
 
     /**
@@ -182,12 +182,12 @@ class S3ConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'configured' => 'configured',
-        'endpoint_url' => 'endpoint_url',
-        'access_key_id' => 'access_key_id',
-        'secret_access_key_masked' => 'secret_access_key_masked',
-        'bucket_name' => 'bucket_name',
-        'default_prefix' => 'default_prefix'
+        'name' => 'name',
+        'text' => 'text',
+        'image_url' => 'image_url',
+        'color' => 'color',
+        'background' => 'background',
+        'hidden' => 'hidden'
     ];
 
     /**
@@ -196,12 +196,12 @@ class S3ConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'configured' => 'setConfigured',
-        'endpoint_url' => 'setEndpointUrl',
-        'access_key_id' => 'setAccessKeyId',
-        'secret_access_key_masked' => 'setSecretAccessKeyMasked',
-        'bucket_name' => 'setBucketName',
-        'default_prefix' => 'setDefaultPrefix'
+        'name' => 'setName',
+        'text' => 'setText',
+        'image_url' => 'setImageUrl',
+        'color' => 'setColor',
+        'background' => 'setBackground',
+        'hidden' => 'setHidden'
     ];
 
     /**
@@ -210,12 +210,12 @@ class S3ConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'configured' => 'getConfigured',
-        'endpoint_url' => 'getEndpointUrl',
-        'access_key_id' => 'getAccessKeyId',
-        'secret_access_key_masked' => 'getSecretAccessKeyMasked',
-        'bucket_name' => 'getBucketName',
-        'default_prefix' => 'getDefaultPrefix'
+        'name' => 'getName',
+        'text' => 'getText',
+        'image_url' => 'getImageUrl',
+        'color' => 'getColor',
+        'background' => 'getBackground',
+        'hidden' => 'getHidden'
     ];
 
     /**
@@ -275,12 +275,12 @@ class S3ConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('configured', $data ?? [], null);
-        $this->setIfExists('endpoint_url', $data ?? [], null);
-        $this->setIfExists('access_key_id', $data ?? [], null);
-        $this->setIfExists('secret_access_key_masked', $data ?? [], null);
-        $this->setIfExists('bucket_name', $data ?? [], null);
-        $this->setIfExists('default_prefix', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('text', $data ?? [], null);
+        $this->setIfExists('image_url', $data ?? [], null);
+        $this->setIfExists('color', $data ?? [], null);
+        $this->setIfExists('background', $data ?? [], null);
+        $this->setIfExists('hidden', $data ?? [], null);
     }
 
     /**
@@ -310,24 +310,37 @@ class S3ConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['configured'] === null) {
-            $invalidProperties[] = "'configured' can't be null";
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['endpoint_url'] === null) {
-            $invalidProperties[] = "'endpoint_url' can't be null";
+        if ((mb_strlen($this->container['name']) > 200)) {
+            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 200.";
         }
-        if ($this->container['access_key_id'] === null) {
-            $invalidProperties[] = "'access_key_id' can't be null";
+
+        if ((mb_strlen($this->container['name']) < 1)) {
+            $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
         }
-        if ($this->container['secret_access_key_masked'] === null) {
-            $invalidProperties[] = "'secret_access_key_masked' can't be null";
+
+        if (!is_null($this->container['text']) && (mb_strlen($this->container['text']) > 10000)) {
+            $invalidProperties[] = "invalid value for 'text', the character length must be smaller than or equal to 10000.";
         }
-        if ($this->container['bucket_name'] === null) {
-            $invalidProperties[] = "'bucket_name' can't be null";
+
+        if (!is_null($this->container['image_url']) && (mb_strlen($this->container['image_url']) > 2000)) {
+            $invalidProperties[] = "invalid value for 'image_url', the character length must be smaller than or equal to 2000.";
         }
-        if ($this->container['default_prefix'] === null) {
-            $invalidProperties[] = "'default_prefix' can't be null";
+
+        if (!is_null($this->container['image_url']) && !preg_match("/^https?:\/\//", $this->container['image_url'])) {
+            $invalidProperties[] = "invalid value for 'image_url', must be conform to the pattern /^https?:\/\//.";
         }
+
+        if (!is_null($this->container['color']) && (mb_strlen($this->container['color']) > 100)) {
+            $invalidProperties[] = "invalid value for 'color', the character length must be smaller than or equal to 100.";
+        }
+
+        if (!is_null($this->container['background']) && (mb_strlen($this->container['background']) > 100)) {
+            $invalidProperties[] = "invalid value for 'background', the character length must be smaller than or equal to 100.";
+        }
+
         return $invalidProperties;
     }
 
@@ -344,163 +357,224 @@ class S3ConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets configured
+     * Gets name
      *
-     * @return bool
+     * @return string
      */
-    public function getConfigured()
+    public function getName()
     {
-        return $this->container['configured'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets configured
+     * Sets name
      *
-     * @param bool $configured Whether S3 is configured
+     * @param string $name Name of the layer to modify (set via the editor's Layers panel). Matched against the element's `data-layer-name`, falling back to its `id`.
      *
      * @return self
      */
-    public function setConfigured($configured)
+    public function setName($name)
     {
-        if (is_null($configured)) {
-            throw new \InvalidArgumentException('non-nullable configured cannot be null');
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-        $this->container['configured'] = $configured;
+        if ((mb_strlen($name) > 200)) {
+            throw new \InvalidArgumentException('invalid length for $name when calling Modification., must be smaller than or equal to 200.');
+        }
+        if ((mb_strlen($name) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $name when calling Modification., must be bigger than or equal to 1.');
+        }
+
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets endpoint_url
+     * Gets text
      *
-     * @return string
+     * @return string|null
      */
-    public function getEndpointUrl()
+    public function getText()
     {
-        return $this->container['endpoint_url'];
+        return $this->container['text'];
     }
 
     /**
-     * Sets endpoint_url
+     * Sets text
      *
-     * @param string $endpoint_url S3-compatible endpoint URL
+     * @param string|null $text text
      *
      * @return self
      */
-    public function setEndpointUrl($endpoint_url)
+    public function setText($text)
     {
-        if (is_null($endpoint_url)) {
-            throw new \InvalidArgumentException('non-nullable endpoint_url cannot be null');
+        if (is_null($text)) {
+            array_push($this->openAPINullablesSetToNull, 'text');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('text', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['endpoint_url'] = $endpoint_url;
+        if (!is_null($text) && (mb_strlen($text) > 10000)) {
+            throw new \InvalidArgumentException('invalid length for $text when calling Modification., must be smaller than or equal to 10000.');
+        }
+
+        $this->container['text'] = $text;
 
         return $this;
     }
 
     /**
-     * Gets access_key_id
+     * Gets image_url
      *
-     * @return string
+     * @return string|null
      */
-    public function getAccessKeyId()
+    public function getImageUrl()
     {
-        return $this->container['access_key_id'];
+        return $this->container['image_url'];
     }
 
     /**
-     * Sets access_key_id
+     * Sets image_url
      *
-     * @param string $access_key_id Access key ID
+     * @param string|null $image_url image_url
      *
      * @return self
      */
-    public function setAccessKeyId($access_key_id)
+    public function setImageUrl($image_url)
     {
-        if (is_null($access_key_id)) {
-            throw new \InvalidArgumentException('non-nullable access_key_id cannot be null');
+        if (is_null($image_url)) {
+            array_push($this->openAPINullablesSetToNull, 'image_url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('image_url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['access_key_id'] = $access_key_id;
+        if (!is_null($image_url) && (mb_strlen($image_url) > 2000)) {
+            throw new \InvalidArgumentException('invalid length for $image_url when calling Modification., must be smaller than or equal to 2000.');
+        }
+        if (!is_null($image_url) && (!preg_match("/^https?:\/\//", ObjectSerializer::toString($image_url)))) {
+            throw new \InvalidArgumentException("invalid value for \$image_url when calling Modification., must conform to the pattern /^https?:\/\//.");
+        }
+
+        $this->container['image_url'] = $image_url;
 
         return $this;
     }
 
     /**
-     * Gets secret_access_key_masked
+     * Gets color
      *
-     * @return string
+     * @return string|null
      */
-    public function getSecretAccessKeyMasked()
+    public function getColor()
     {
-        return $this->container['secret_access_key_masked'];
+        return $this->container['color'];
     }
 
     /**
-     * Sets secret_access_key_masked
+     * Sets color
      *
-     * @param string $secret_access_key_masked Masked secret access key (shows first 4 and last 4 characters)
+     * @param string|null $color color
      *
      * @return self
      */
-    public function setSecretAccessKeyMasked($secret_access_key_masked)
+    public function setColor($color)
     {
-        if (is_null($secret_access_key_masked)) {
-            throw new \InvalidArgumentException('non-nullable secret_access_key_masked cannot be null');
+        if (is_null($color)) {
+            array_push($this->openAPINullablesSetToNull, 'color');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('color', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['secret_access_key_masked'] = $secret_access_key_masked;
+        if (!is_null($color) && (mb_strlen($color) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $color when calling Modification., must be smaller than or equal to 100.');
+        }
+
+        $this->container['color'] = $color;
 
         return $this;
     }
 
     /**
-     * Gets bucket_name
+     * Gets background
      *
-     * @return string
+     * @return string|null
      */
-    public function getBucketName()
+    public function getBackground()
     {
-        return $this->container['bucket_name'];
+        return $this->container['background'];
     }
 
     /**
-     * Sets bucket_name
+     * Sets background
      *
-     * @param string $bucket_name S3 bucket name
+     * @param string|null $background background
      *
      * @return self
      */
-    public function setBucketName($bucket_name)
+    public function setBackground($background)
     {
-        if (is_null($bucket_name)) {
-            throw new \InvalidArgumentException('non-nullable bucket_name cannot be null');
+        if (is_null($background)) {
+            array_push($this->openAPINullablesSetToNull, 'background');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('background', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['bucket_name'] = $bucket_name;
+        if (!is_null($background) && (mb_strlen($background) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $background when calling Modification., must be smaller than or equal to 100.');
+        }
+
+        $this->container['background'] = $background;
 
         return $this;
     }
 
     /**
-     * Gets default_prefix
+     * Gets hidden
      *
-     * @return string
+     * @return bool|null
      */
-    public function getDefaultPrefix()
+    public function getHidden()
     {
-        return $this->container['default_prefix'];
+        return $this->container['hidden'];
     }
 
     /**
-     * Sets default_prefix
+     * Sets hidden
      *
-     * @param string $default_prefix Default path prefix for uploads
+     * @param bool|null $hidden hidden
      *
      * @return self
      */
-    public function setDefaultPrefix($default_prefix)
+    public function setHidden($hidden)
     {
-        if (is_null($default_prefix)) {
-            throw new \InvalidArgumentException('non-nullable default_prefix cannot be null');
+        if (is_null($hidden)) {
+            array_push($this->openAPINullablesSetToNull, 'hidden');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('hidden', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['default_prefix'] = $default_prefix;
+        $this->container['hidden'] = $hidden;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * PdfVariantTest
+ * CreateImageResponseTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace TemplateFox\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * PdfVariantTest Class Doc Comment
+ * CreateImageResponseTest Class Doc Comment
  *
  * @category    Class
- * @description PDF variant for standards-compliant output (PDF/A).
+ * @description Response for URL export type
  * @package     TemplateFox
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class PdfVariantTest extends TestCase
+class CreateImageResponseTest extends TestCase
 {
 
     /**
@@ -71,9 +71,54 @@ class PdfVariantTest extends TestCase
     }
 
     /**
-     * Test "PdfVariant"
+     * Test "CreateImageResponse"
      */
-    public function testPdfVariant()
+    public function testCreateImageResponse()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "url"
+     */
+    public function testPropertyUrl()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "filename"
+     */
+    public function testPropertyFilename()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "credits_remaining"
+     */
+    public function testPropertyCreditsRemaining()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "expires_in"
+     */
+    public function testPropertyExpiresIn()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "warnings"
+     */
+    public function testPropertyWarnings()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

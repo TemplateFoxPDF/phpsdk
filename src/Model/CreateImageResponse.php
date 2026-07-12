@@ -1,6 +1,6 @@
 <?php
 /**
- * S3ConfigResponse
+ * CreateImageResponse
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \TemplateFox\ObjectSerializer;
 
 /**
- * S3ConfigResponse Class Doc Comment
+ * CreateImageResponse Class Doc Comment
  *
  * @category Class
- * @description Response for S3 configuration (with masked secret)
+ * @description Response for URL export type
  * @package  TemplateFox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class S3ConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateImageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class S3ConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @var string
      */
-    protected static $openAPIModelName = 'S3ConfigResponse';
+    protected static $openAPIModelName = 'CreateImageResponse';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,12 +58,11 @@ class S3ConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        'configured' => 'bool',
-        'endpoint_url' => 'string',
-        'access_key_id' => 'string',
-        'secret_access_key_masked' => 'string',
-        'bucket_name' => 'string',
-        'default_prefix' => 'string'
+        'url' => 'string',
+        'filename' => 'string',
+        'credits_remaining' => 'int',
+        'expires_in' => 'int',
+        'warnings' => 'string[]'
     ];
 
     /**
@@ -74,12 +73,11 @@ class S3ConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'configured' => null,
-        'endpoint_url' => null,
-        'access_key_id' => null,
-        'secret_access_key_masked' => null,
-        'bucket_name' => null,
-        'default_prefix' => null
+        'url' => null,
+        'filename' => null,
+        'credits_remaining' => null,
+        'expires_in' => null,
+        'warnings' => null
     ];
 
     /**
@@ -88,12 +86,11 @@ class S3ConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'configured' => false,
-        'endpoint_url' => false,
-        'access_key_id' => false,
-        'secret_access_key_masked' => false,
-        'bucket_name' => false,
-        'default_prefix' => false
+        'url' => false,
+        'filename' => false,
+        'credits_remaining' => false,
+        'expires_in' => false,
+        'warnings' => true
     ];
 
     /**
@@ -182,12 +179,11 @@ class S3ConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'configured' => 'configured',
-        'endpoint_url' => 'endpoint_url',
-        'access_key_id' => 'access_key_id',
-        'secret_access_key_masked' => 'secret_access_key_masked',
-        'bucket_name' => 'bucket_name',
-        'default_prefix' => 'default_prefix'
+        'url' => 'url',
+        'filename' => 'filename',
+        'credits_remaining' => 'credits_remaining',
+        'expires_in' => 'expires_in',
+        'warnings' => 'warnings'
     ];
 
     /**
@@ -196,12 +192,11 @@ class S3ConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'configured' => 'setConfigured',
-        'endpoint_url' => 'setEndpointUrl',
-        'access_key_id' => 'setAccessKeyId',
-        'secret_access_key_masked' => 'setSecretAccessKeyMasked',
-        'bucket_name' => 'setBucketName',
-        'default_prefix' => 'setDefaultPrefix'
+        'url' => 'setUrl',
+        'filename' => 'setFilename',
+        'credits_remaining' => 'setCreditsRemaining',
+        'expires_in' => 'setExpiresIn',
+        'warnings' => 'setWarnings'
     ];
 
     /**
@@ -210,12 +205,11 @@ class S3ConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'configured' => 'getConfigured',
-        'endpoint_url' => 'getEndpointUrl',
-        'access_key_id' => 'getAccessKeyId',
-        'secret_access_key_masked' => 'getSecretAccessKeyMasked',
-        'bucket_name' => 'getBucketName',
-        'default_prefix' => 'getDefaultPrefix'
+        'url' => 'getUrl',
+        'filename' => 'getFilename',
+        'credits_remaining' => 'getCreditsRemaining',
+        'expires_in' => 'getExpiresIn',
+        'warnings' => 'getWarnings'
     ];
 
     /**
@@ -275,12 +269,11 @@ class S3ConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('configured', $data ?? [], null);
-        $this->setIfExists('endpoint_url', $data ?? [], null);
-        $this->setIfExists('access_key_id', $data ?? [], null);
-        $this->setIfExists('secret_access_key_masked', $data ?? [], null);
-        $this->setIfExists('bucket_name', $data ?? [], null);
-        $this->setIfExists('default_prefix', $data ?? [], null);
+        $this->setIfExists('url', $data ?? [], null);
+        $this->setIfExists('filename', $data ?? [], null);
+        $this->setIfExists('credits_remaining', $data ?? [], null);
+        $this->setIfExists('expires_in', $data ?? [], null);
+        $this->setIfExists('warnings', $data ?? [], null);
     }
 
     /**
@@ -310,23 +303,17 @@ class S3ConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['configured'] === null) {
-            $invalidProperties[] = "'configured' can't be null";
+        if ($this->container['url'] === null) {
+            $invalidProperties[] = "'url' can't be null";
         }
-        if ($this->container['endpoint_url'] === null) {
-            $invalidProperties[] = "'endpoint_url' can't be null";
+        if ($this->container['filename'] === null) {
+            $invalidProperties[] = "'filename' can't be null";
         }
-        if ($this->container['access_key_id'] === null) {
-            $invalidProperties[] = "'access_key_id' can't be null";
+        if ($this->container['credits_remaining'] === null) {
+            $invalidProperties[] = "'credits_remaining' can't be null";
         }
-        if ($this->container['secret_access_key_masked'] === null) {
-            $invalidProperties[] = "'secret_access_key_masked' can't be null";
-        }
-        if ($this->container['bucket_name'] === null) {
-            $invalidProperties[] = "'bucket_name' can't be null";
-        }
-        if ($this->container['default_prefix'] === null) {
-            $invalidProperties[] = "'default_prefix' can't be null";
+        if ($this->container['expires_in'] === null) {
+            $invalidProperties[] = "'expires_in' can't be null";
         }
         return $invalidProperties;
     }
@@ -344,163 +331,143 @@ class S3ConfigResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets configured
+     * Gets url
      *
-     * @return bool
+     * @return string
      */
-    public function getConfigured()
+    public function getUrl()
     {
-        return $this->container['configured'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets configured
+     * Sets url
      *
-     * @param bool $configured Whether S3 is configured
+     * @param string $url Signed URL to download the image (expires after specified time)
      *
      * @return self
      */
-    public function setConfigured($configured)
+    public function setUrl($url)
     {
-        if (is_null($configured)) {
-            throw new \InvalidArgumentException('non-nullable configured cannot be null');
+        if (is_null($url)) {
+            throw new \InvalidArgumentException('non-nullable url cannot be null');
         }
-        $this->container['configured'] = $configured;
+        $this->container['url'] = $url;
 
         return $this;
     }
 
     /**
-     * Gets endpoint_url
+     * Gets filename
      *
      * @return string
      */
-    public function getEndpointUrl()
+    public function getFilename()
     {
-        return $this->container['endpoint_url'];
+        return $this->container['filename'];
     }
 
     /**
-     * Sets endpoint_url
+     * Sets filename
      *
-     * @param string $endpoint_url S3-compatible endpoint URL
+     * @param string $filename Filename of the generated image
      *
      * @return self
      */
-    public function setEndpointUrl($endpoint_url)
+    public function setFilename($filename)
     {
-        if (is_null($endpoint_url)) {
-            throw new \InvalidArgumentException('non-nullable endpoint_url cannot be null');
+        if (is_null($filename)) {
+            throw new \InvalidArgumentException('non-nullable filename cannot be null');
         }
-        $this->container['endpoint_url'] = $endpoint_url;
+        $this->container['filename'] = $filename;
 
         return $this;
     }
 
     /**
-     * Gets access_key_id
+     * Gets credits_remaining
      *
-     * @return string
+     * @return int
      */
-    public function getAccessKeyId()
+    public function getCreditsRemaining()
     {
-        return $this->container['access_key_id'];
+        return $this->container['credits_remaining'];
     }
 
     /**
-     * Sets access_key_id
+     * Sets credits_remaining
      *
-     * @param string $access_key_id Access key ID
+     * @param int $credits_remaining Remaining credits after this request
      *
      * @return self
      */
-    public function setAccessKeyId($access_key_id)
+    public function setCreditsRemaining($credits_remaining)
     {
-        if (is_null($access_key_id)) {
-            throw new \InvalidArgumentException('non-nullable access_key_id cannot be null');
+        if (is_null($credits_remaining)) {
+            throw new \InvalidArgumentException('non-nullable credits_remaining cannot be null');
         }
-        $this->container['access_key_id'] = $access_key_id;
+        $this->container['credits_remaining'] = $credits_remaining;
 
         return $this;
     }
 
     /**
-     * Gets secret_access_key_masked
+     * Gets expires_in
      *
-     * @return string
+     * @return int
      */
-    public function getSecretAccessKeyMasked()
+    public function getExpiresIn()
     {
-        return $this->container['secret_access_key_masked'];
+        return $this->container['expires_in'];
     }
 
     /**
-     * Sets secret_access_key_masked
+     * Sets expires_in
      *
-     * @param string $secret_access_key_masked Masked secret access key (shows first 4 and last 4 characters)
+     * @param int $expires_in Seconds until the signed URL expires
      *
      * @return self
      */
-    public function setSecretAccessKeyMasked($secret_access_key_masked)
+    public function setExpiresIn($expires_in)
     {
-        if (is_null($secret_access_key_masked)) {
-            throw new \InvalidArgumentException('non-nullable secret_access_key_masked cannot be null');
+        if (is_null($expires_in)) {
+            throw new \InvalidArgumentException('non-nullable expires_in cannot be null');
         }
-        $this->container['secret_access_key_masked'] = $secret_access_key_masked;
+        $this->container['expires_in'] = $expires_in;
 
         return $this;
     }
 
     /**
-     * Gets bucket_name
+     * Gets warnings
      *
-     * @return string
+     * @return string[]|null
      */
-    public function getBucketName()
+    public function getWarnings()
     {
-        return $this->container['bucket_name'];
+        return $this->container['warnings'];
     }
 
     /**
-     * Sets bucket_name
+     * Sets warnings
      *
-     * @param string $bucket_name S3 bucket name
+     * @param string[]|null $warnings warnings
      *
      * @return self
      */
-    public function setBucketName($bucket_name)
+    public function setWarnings($warnings)
     {
-        if (is_null($bucket_name)) {
-            throw new \InvalidArgumentException('non-nullable bucket_name cannot be null');
+        if (is_null($warnings)) {
+            array_push($this->openAPINullablesSetToNull, 'warnings');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('warnings', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['bucket_name'] = $bucket_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets default_prefix
-     *
-     * @return string
-     */
-    public function getDefaultPrefix()
-    {
-        return $this->container['default_prefix'];
-    }
-
-    /**
-     * Sets default_prefix
-     *
-     * @param string $default_prefix Default path prefix for uploads
-     *
-     * @return self
-     */
-    public function setDefaultPrefix($default_prefix)
-    {
-        if (is_null($default_prefix)) {
-            throw new \InvalidArgumentException('non-nullable default_prefix cannot be null');
-        }
-        $this->container['default_prefix'] = $default_prefix;
+        $this->container['warnings'] = $warnings;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * PdfVariantTest
+ * AppRoutersV1DeliveryExportTypeTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace TemplateFox\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * PdfVariantTest Class Doc Comment
+ * AppRoutersV1DeliveryExportTypeTest Class Doc Comment
  *
  * @category    Class
- * @description PDF variant for standards-compliant output (PDF/A).
+ * @description Output delivery type options
  * @package     TemplateFox
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class PdfVariantTest extends TestCase
+class AppRoutersV1DeliveryExportTypeTest extends TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class PdfVariantTest extends TestCase
     }
 
     /**
-     * Test "PdfVariant"
+     * Test "AppRoutersV1DeliveryExportType"
      */
-    public function testPdfVariant()
+    public function testAppRoutersV1DeliveryExportType()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

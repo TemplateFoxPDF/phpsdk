@@ -1,6 +1,6 @@
 <?php
 /**
- * JobStatus
+ * ImageFormat
  *
  * PHP version 8.1
  *
@@ -30,26 +30,24 @@ namespace TemplateFox\Model;
 use \TemplateFox\ObjectSerializer;
 
 /**
- * JobStatus Class Doc Comment
+ * ImageFormat Class Doc Comment
  *
  * @category Class
- * @description PDF job status values
+ * @description Image output format options
  * @package  TemplateFox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class JobStatus
+class ImageFormat
 {
     /**
      * Possible values of this enum
      */
-    public const PENDING = 'pending';
+    public const PNG = 'png';
 
-    public const PROCESSING = 'processing';
+    public const JPEG = 'jpeg';
 
-    public const COMPLETED = 'completed';
-
-    public const FAILED = 'failed';
+    public const WEBP = 'webp';
 
     /**
      * Gets allowable values of the enum
@@ -58,10 +56,9 @@ class JobStatus
     public static function getAllowableEnumValues()
     {
         return [
-            self::PENDING,
-            self::PROCESSING,
-            self::COMPLETED,
-            self::FAILED
+            self::PNG,
+            self::JPEG,
+            self::WEBP
         ];
     }
 }

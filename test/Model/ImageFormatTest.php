@@ -1,6 +1,6 @@
 <?php
 /**
- * PdfVariantTest
+ * ImageFormatTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace TemplateFox\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * PdfVariantTest Class Doc Comment
+ * ImageFormatTest Class Doc Comment
  *
  * @category    Class
- * @description PDF variant for standards-compliant output (PDF/A).
+ * @description Image output format options
  * @package     TemplateFox
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class PdfVariantTest extends TestCase
+class ImageFormatTest extends TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class PdfVariantTest extends TestCase
     }
 
     /**
-     * Test "PdfVariant"
+     * Test "ImageFormat"
      */
-    public function testPdfVariant()
+    public function testImageFormat()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
