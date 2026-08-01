@@ -1,6 +1,6 @@
 <?php
 /**
- * RotatePdfRequestTest
+ * TemplateLayerTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace TemplateFox\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * RotatePdfRequestTest Class Doc Comment
+ * TemplateLayerTest Class Doc Comment
  *
  * @category    Class
- * @description RotatePdfRequest
+ * @description An addressable layer of a template (modifications API)
  * @package     TemplateFox
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class RotatePdfRequestTest extends TestCase
+class TemplateLayerTest extends TestCase
 {
 
     /**
@@ -71,72 +71,54 @@ class RotatePdfRequestTest extends TestCase
     }
 
     /**
-     * Test "RotatePdfRequest"
+     * Test "TemplateLayer"
      */
-    public function testRotatePdfRequest()
+    public function testTemplateLayer()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "export_type"
+     * Test attribute "name"
      */
-    public function testPropertyExportType()
+    public function testPropertyName()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "expiration"
+     * Test attribute "tag"
      */
-    public function testPropertyExpiration()
+    public function testPropertyTag()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "filename"
+     * Test attribute "type"
      */
-    public function testPropertyFilename()
+    public function testPropertyType()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "pdf_url"
+     * Test attribute "current_text"
      */
-    public function testPropertyPdfUrl()
+    public function testPropertyCurrentText()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "pdf_base64"
+     * Test attribute "modifiable"
      */
-    public function testPropertyPdfBase64()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "rotation"
-     */
-    public function testPropertyRotation()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "page_rotations"
-     */
-    public function testPropertyPageRotations()
+    public function testPropertyModifiable()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

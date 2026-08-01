@@ -1,6 +1,6 @@
 <?php
 /**
- * TransactionsResponse
+ * TemplateLayersResponse
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \TemplateFox\ObjectSerializer;
 
 /**
- * TransactionsResponse Class Doc Comment
+ * TemplateLayersResponse Class Doc Comment
  *
  * @category Class
- * @description Response for transactions list endpoint
+ * @description Response for template layers endpoint
  * @package  TemplateFox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TransactionsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class TemplateLayersResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class TransactionsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      *
      * @var string
      */
-    protected static $openAPIModelName = 'TransactionsResponse';
+    protected static $openAPIModelName = 'TemplateLayersResponse';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,8 @@ class TransactionsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $openAPITypes = [
-        'transactions' => '\TemplateFox\Model\Transaction[]',
-        'total' => 'int',
-        'limit' => 'int',
-        'offset' => 'int'
+        'layers' => '\TemplateFox\Model\TemplateLayer[]',
+        'warnings' => 'string[]'
     ];
 
     /**
@@ -72,10 +70,8 @@ class TransactionsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'transactions' => null,
-        'total' => null,
-        'limit' => null,
-        'offset' => null
+        'layers' => null,
+        'warnings' => null
     ];
 
     /**
@@ -84,10 +80,8 @@ class TransactionsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'transactions' => false,
-        'total' => false,
-        'limit' => false,
-        'offset' => false
+        'layers' => false,
+        'warnings' => false
     ];
 
     /**
@@ -176,10 +170,8 @@ class TransactionsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'transactions' => 'transactions',
-        'total' => 'total',
-        'limit' => 'limit',
-        'offset' => 'offset'
+        'layers' => 'layers',
+        'warnings' => 'warnings'
     ];
 
     /**
@@ -188,10 +180,8 @@ class TransactionsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'transactions' => 'setTransactions',
-        'total' => 'setTotal',
-        'limit' => 'setLimit',
-        'offset' => 'setOffset'
+        'layers' => 'setLayers',
+        'warnings' => 'setWarnings'
     ];
 
     /**
@@ -200,10 +190,8 @@ class TransactionsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'transactions' => 'getTransactions',
-        'total' => 'getTotal',
-        'limit' => 'getLimit',
-        'offset' => 'getOffset'
+        'layers' => 'getLayers',
+        'warnings' => 'getWarnings'
     ];
 
     /**
@@ -263,10 +251,8 @@ class TransactionsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('transactions', $data ?? [], null);
-        $this->setIfExists('total', $data ?? [], null);
-        $this->setIfExists('limit', $data ?? [], null);
-        $this->setIfExists('offset', $data ?? [], null);
+        $this->setIfExists('layers', $data ?? [], null);
+        $this->setIfExists('warnings', $data ?? [], null);
     }
 
     /**
@@ -296,17 +282,8 @@ class TransactionsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $invalidProperties = [];
 
-        if ($this->container['transactions'] === null) {
-            $invalidProperties[] = "'transactions' can't be null";
-        }
-        if ($this->container['total'] === null) {
-            $invalidProperties[] = "'total' can't be null";
-        }
-        if ($this->container['limit'] === null) {
-            $invalidProperties[] = "'limit' can't be null";
-        }
-        if ($this->container['offset'] === null) {
-            $invalidProperties[] = "'offset' can't be null";
+        if ($this->container['layers'] === null) {
+            $invalidProperties[] = "'layers' can't be null";
         }
         return $invalidProperties;
     }
@@ -324,109 +301,55 @@ class TransactionsResponse implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
-     * Gets transactions
+     * Gets layers
      *
-     * @return \TemplateFox\Model\Transaction[]
+     * @return \TemplateFox\Model\TemplateLayer[]
      */
-    public function getTransactions()
+    public function getLayers()
     {
-        return $this->container['transactions'];
+        return $this->container['layers'];
     }
 
     /**
-     * Sets transactions
+     * Sets layers
      *
-     * @param \TemplateFox\Model\Transaction[] $transactions transactions
+     * @param \TemplateFox\Model\TemplateLayer[] $layers layers
      *
      * @return self
      */
-    public function setTransactions($transactions)
+    public function setLayers($layers)
     {
-        if (is_null($transactions)) {
-            throw new \InvalidArgumentException('non-nullable transactions cannot be null');
+        if (is_null($layers)) {
+            throw new \InvalidArgumentException('non-nullable layers cannot be null');
         }
-        $this->container['transactions'] = $transactions;
+        $this->container['layers'] = $layers;
 
         return $this;
     }
 
     /**
-     * Gets total
+     * Gets warnings
      *
-     * @return int
+     * @return string[]|null
      */
-    public function getTotal()
+    public function getWarnings()
     {
-        return $this->container['total'];
+        return $this->container['warnings'];
     }
 
     /**
-     * Sets total
+     * Sets warnings
      *
-     * @param int $total Total number of transactions
+     * @param string[]|null $warnings Non-fatal issues (e.g. duplicate layer names)
      *
      * @return self
      */
-    public function setTotal($total)
+    public function setWarnings($warnings)
     {
-        if (is_null($total)) {
-            throw new \InvalidArgumentException('non-nullable total cannot be null');
+        if (is_null($warnings)) {
+            throw new \InvalidArgumentException('non-nullable warnings cannot be null');
         }
-        $this->container['total'] = $total;
-
-        return $this;
-    }
-
-    /**
-     * Gets limit
-     *
-     * @return int
-     */
-    public function getLimit()
-    {
-        return $this->container['limit'];
-    }
-
-    /**
-     * Sets limit
-     *
-     * @param int $limit Number of records returned
-     *
-     * @return self
-     */
-    public function setLimit($limit)
-    {
-        if (is_null($limit)) {
-            throw new \InvalidArgumentException('non-nullable limit cannot be null');
-        }
-        $this->container['limit'] = $limit;
-
-        return $this;
-    }
-
-    /**
-     * Gets offset
-     *
-     * @return int
-     */
-    public function getOffset()
-    {
-        return $this->container['offset'];
-    }
-
-    /**
-     * Sets offset
-     *
-     * @param int $offset Number of records skipped
-     *
-     * @return self
-     */
-    public function setOffset($offset)
-    {
-        if (is_null($offset)) {
-            throw new \InvalidArgumentException('non-nullable offset cannot be null');
-        }
-        $this->container['offset'] = $offset;
+        $this->container['warnings'] = $warnings;
 
         return $this;
     }

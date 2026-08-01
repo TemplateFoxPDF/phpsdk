@@ -1,6 +1,6 @@
 <?php
 /**
- * Modification
+ * TemplateLayer
  *
  * PHP version 8.1
  *
@@ -32,16 +32,16 @@ use \ArrayAccess;
 use \TemplateFox\ObjectSerializer;
 
 /**
- * Modification Class Doc Comment
+ * TemplateLayer Class Doc Comment
  *
  * @category Class
- * @description A single element modification, addressed by layer name.
+ * @description An addressable layer of a template (modifications API)
  * @package  TemplateFox
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Modification implements ModelInterface, ArrayAccess, \JsonSerializable
+class TemplateLayer implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Modification implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @var string
      */
-    protected static $openAPIModelName = 'Modification';
+    protected static $openAPIModelName = 'TemplateLayer';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -59,11 +59,10 @@ class Modification implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPITypes = [
         'name' => 'string',
-        'text' => 'string',
-        'image_url' => 'string',
-        'color' => 'string',
-        'background' => 'string',
-        'hidden' => 'bool'
+        'tag' => 'string',
+        'type' => 'string',
+        'current_text' => 'string',
+        'modifiable' => 'string[]'
     ];
 
     /**
@@ -75,11 +74,10 @@ class Modification implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPIFormats = [
         'name' => null,
-        'text' => null,
-        'image_url' => null,
-        'color' => null,
-        'background' => null,
-        'hidden' => null
+        'tag' => null,
+        'type' => null,
+        'current_text' => null,
+        'modifiable' => null
     ];
 
     /**
@@ -89,11 +87,10 @@ class Modification implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static array $openAPINullables = [
         'name' => false,
-        'text' => true,
-        'image_url' => true,
-        'color' => true,
-        'background' => true,
-        'hidden' => true
+        'tag' => false,
+        'type' => false,
+        'current_text' => true,
+        'modifiable' => false
     ];
 
     /**
@@ -183,11 +180,10 @@ class Modification implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'text' => 'text',
-        'image_url' => 'image_url',
-        'color' => 'color',
-        'background' => 'background',
-        'hidden' => 'hidden'
+        'tag' => 'tag',
+        'type' => 'type',
+        'current_text' => 'current_text',
+        'modifiable' => 'modifiable'
     ];
 
     /**
@@ -197,11 +193,10 @@ class Modification implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'name' => 'setName',
-        'text' => 'setText',
-        'image_url' => 'setImageUrl',
-        'color' => 'setColor',
-        'background' => 'setBackground',
-        'hidden' => 'setHidden'
+        'tag' => 'setTag',
+        'type' => 'setType',
+        'current_text' => 'setCurrentText',
+        'modifiable' => 'setModifiable'
     ];
 
     /**
@@ -211,11 +206,10 @@ class Modification implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'name' => 'getName',
-        'text' => 'getText',
-        'image_url' => 'getImageUrl',
-        'color' => 'getColor',
-        'background' => 'getBackground',
-        'hidden' => 'getHidden'
+        'tag' => 'getTag',
+        'type' => 'getType',
+        'current_text' => 'getCurrentText',
+        'modifiable' => 'getModifiable'
     ];
 
     /**
@@ -276,11 +270,10 @@ class Modification implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('text', $data ?? [], null);
-        $this->setIfExists('image_url', $data ?? [], null);
-        $this->setIfExists('color', $data ?? [], null);
-        $this->setIfExists('background', $data ?? [], null);
-        $this->setIfExists('hidden', $data ?? [], null);
+        $this->setIfExists('tag', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('current_text', $data ?? [], null);
+        $this->setIfExists('modifiable', $data ?? [], null);
     }
 
     /**
@@ -313,34 +306,15 @@ class Modification implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
-        if ((mb_strlen($this->container['name']) > 200)) {
-            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 200.";
+        if ($this->container['tag'] === null) {
+            $invalidProperties[] = "'tag' can't be null";
         }
-
-        if ((mb_strlen($this->container['name']) < 1)) {
-            $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
         }
-
-        if (!is_null($this->container['text']) && (mb_strlen($this->container['text']) > 10000)) {
-            $invalidProperties[] = "invalid value for 'text', the character length must be smaller than or equal to 10000.";
+        if ($this->container['modifiable'] === null) {
+            $invalidProperties[] = "'modifiable' can't be null";
         }
-
-        if (!is_null($this->container['image_url']) && (mb_strlen($this->container['image_url']) > 2000)) {
-            $invalidProperties[] = "invalid value for 'image_url', the character length must be smaller than or equal to 2000.";
-        }
-
-        if (!is_null($this->container['image_url']) && !preg_match("/^https?:\/\//", $this->container['image_url'])) {
-            $invalidProperties[] = "invalid value for 'image_url', must be conform to the pattern /^https?:\/\//.";
-        }
-
-        if (!is_null($this->container['color']) && (mb_strlen($this->container['color']) > 100)) {
-            $invalidProperties[] = "invalid value for 'color', the character length must be smaller than or equal to 100.";
-        }
-
-        if (!is_null($this->container['background']) && (mb_strlen($this->container['background']) > 100)) {
-            $invalidProperties[] = "invalid value for 'background', the character length must be smaller than or equal to 100.";
-        }
-
         return $invalidProperties;
     }
 
@@ -369,7 +343,7 @@ class Modification implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string $name Name of the layer to modify (set via the editor's Layers panel). Matched against the element's `data-layer-name`, falling back to its `id`.
+     * @param string $name Layer name — the value to use in `modifications[].name`
      *
      * @return self
      */
@@ -378,203 +352,122 @@ class Modification implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($name)) {
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-        if ((mb_strlen($name) > 200)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling Modification., must be smaller than or equal to 200.');
-        }
-        if ((mb_strlen($name) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $name when calling Modification., must be bigger than or equal to 1.');
-        }
-
         $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets text
+     * Gets tag
      *
-     * @return string|null
+     * @return string
      */
-    public function getText()
+    public function getTag()
     {
-        return $this->container['text'];
+        return $this->container['tag'];
     }
 
     /**
-     * Sets text
+     * Sets tag
      *
-     * @param string|null $text text
+     * @param string $tag HTML tag of the element
      *
      * @return self
      */
-    public function setText($text)
+    public function setTag($tag)
     {
-        if (is_null($text)) {
-            array_push($this->openAPINullablesSetToNull, 'text');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('text', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($tag)) {
+            throw new \InvalidArgumentException('non-nullable tag cannot be null');
         }
-        if (!is_null($text) && (mb_strlen($text) > 10000)) {
-            throw new \InvalidArgumentException('invalid length for $text when calling Modification., must be smaller than or equal to 10000.');
-        }
-
-        $this->container['text'] = $text;
+        $this->container['tag'] = $tag;
 
         return $this;
     }
 
     /**
-     * Gets image_url
+     * Gets type
      *
-     * @return string|null
+     * @return string
      */
-    public function getImageUrl()
+    public function getType()
     {
-        return $this->container['image_url'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets image_url
+     * Sets type
      *
-     * @param string|null $image_url image_url
+     * @param string $type Layer type: `background`, `image`, `text` or `shape`
      *
      * @return self
      */
-    public function setImageUrl($image_url)
+    public function setType($type)
     {
-        if (is_null($image_url)) {
-            array_push($this->openAPINullablesSetToNull, 'image_url');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('image_url', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
-        if (!is_null($image_url) && (mb_strlen($image_url) > 2000)) {
-            throw new \InvalidArgumentException('invalid length for $image_url when calling Modification., must be smaller than or equal to 2000.');
-        }
-        if (!is_null($image_url) && (!preg_match("/^https?:\/\//", ObjectSerializer::toString($image_url)))) {
-            throw new \InvalidArgumentException("invalid value for \$image_url when calling Modification., must conform to the pattern /^https?:\/\//.");
-        }
-
-        $this->container['image_url'] = $image_url;
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets color
+     * Gets current_text
      *
      * @return string|null
      */
-    public function getColor()
+    public function getCurrentText()
     {
-        return $this->container['color'];
+        return $this->container['current_text'];
     }
 
     /**
-     * Sets color
+     * Sets current_text
      *
-     * @param string|null $color color
+     * @param string|null $current_text current_text
      *
      * @return self
      */
-    public function setColor($color)
+    public function setCurrentText($current_text)
     {
-        if (is_null($color)) {
-            array_push($this->openAPINullablesSetToNull, 'color');
+        if (is_null($current_text)) {
+            array_push($this->openAPINullablesSetToNull, 'current_text');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('color', $nullablesSetToNull);
+            $index = array_search('current_text', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        if (!is_null($color) && (mb_strlen($color) > 100)) {
-            throw new \InvalidArgumentException('invalid length for $color when calling Modification., must be smaller than or equal to 100.');
-        }
-
-        $this->container['color'] = $color;
+        $this->container['current_text'] = $current_text;
 
         return $this;
     }
 
     /**
-     * Gets background
+     * Gets modifiable
      *
-     * @return string|null
+     * @return string[]
      */
-    public function getBackground()
+    public function getModifiable()
     {
-        return $this->container['background'];
+        return $this->container['modifiable'];
     }
 
     /**
-     * Sets background
+     * Sets modifiable
      *
-     * @param string|null $background background
+     * @param string[] $modifiable Modification fields that apply to this layer
      *
      * @return self
      */
-    public function setBackground($background)
+    public function setModifiable($modifiable)
     {
-        if (is_null($background)) {
-            array_push($this->openAPINullablesSetToNull, 'background');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('background', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($modifiable)) {
+            throw new \InvalidArgumentException('non-nullable modifiable cannot be null');
         }
-        if (!is_null($background) && (mb_strlen($background) > 100)) {
-            throw new \InvalidArgumentException('invalid length for $background when calling Modification., must be smaller than or equal to 100.');
-        }
-
-        $this->container['background'] = $background;
-
-        return $this;
-    }
-
-    /**
-     * Gets hidden
-     *
-     * @return bool|null
-     */
-    public function getHidden()
-    {
-        return $this->container['hidden'];
-    }
-
-    /**
-     * Sets hidden
-     *
-     * @param bool|null $hidden hidden
-     *
-     * @return self
-     */
-    public function setHidden($hidden)
-    {
-        if (is_null($hidden)) {
-            array_push($this->openAPINullablesSetToNull, 'hidden');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('hidden', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['hidden'] = $hidden;
+        $this->container['modifiable'] = $modifiable;
 
         return $this;
     }

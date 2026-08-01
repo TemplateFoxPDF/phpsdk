@@ -1,6 +1,6 @@
 <?php
 /**
- * RotatePdfRequestTest
+ * TemplateLayersResponseTest
  *
  * PHP version 8.1
  *
@@ -31,15 +31,15 @@ namespace TemplateFox\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * RotatePdfRequestTest Class Doc Comment
+ * TemplateLayersResponseTest Class Doc Comment
  *
  * @category    Class
- * @description RotatePdfRequest
+ * @description Response for template layers endpoint
  * @package     TemplateFox
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class RotatePdfRequestTest extends TestCase
+class TemplateLayersResponseTest extends TestCase
 {
 
     /**
@@ -71,72 +71,27 @@ class RotatePdfRequestTest extends TestCase
     }
 
     /**
-     * Test "RotatePdfRequest"
+     * Test "TemplateLayersResponse"
      */
-    public function testRotatePdfRequest()
+    public function testTemplateLayersResponse()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "export_type"
+     * Test attribute "layers"
      */
-    public function testPropertyExportType()
+    public function testPropertyLayers()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "expiration"
+     * Test attribute "warnings"
      */
-    public function testPropertyExpiration()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "filename"
-     */
-    public function testPropertyFilename()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "pdf_url"
-     */
-    public function testPropertyPdfUrl()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "pdf_base64"
-     */
-    public function testPropertyPdfBase64()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "rotation"
-     */
-    public function testPropertyRotation()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "page_rotations"
-     */
-    public function testPropertyPageRotations()
+    public function testPropertyWarnings()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
